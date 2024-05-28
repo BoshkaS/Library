@@ -1,0 +1,58 @@
+<div
+  *ngIf="!(accountService.currentUser$ | async)"
+  class="backdrop"
+  (click)="closeHandler()"
+>
+  <form
+    *ngIf="!(accountService.currentUser$ | async)"
+    #loginForm="ngForm"
+    class="modal"
+    (click)="handleStopPropagation($event)"
+    (ngSubmit)="login()"
+  >
+    <header class="form-header"><h2>Увійти</h2></header>
+    <div class="form-body">
+      <label htmlFor="sign-in-password" class="input">
+        <span>Емейл</span>
+        <input
+          name="email"
+          [(ngModel)]="model.email"
+          class="input-login"
+          type="email"
+          placeholder="Емейл"
+          required
+          #emailInput="ngModel"
+        />
+      </label>
+      <!-- <span class="help-block" *ngIf="!emailInput.valid && emailInput.touched">Plaese enter a valid email!</span> -->
+      <label htmlFor="sign-in-password" class="input">
+        <span>Пароль</span>
+        <input
+          [(ngModel)]="model.password"
+          class="input-login"
+          type="password"
+          placeholder="Пароль"
+          name="password"
+          required
+          #passwordInput="ngModel"
+          id="sign-in-password"
+        />
+      </label>
+      <!-- <span class="help-block" *ngIf="passwordInput.touched">Plaese enter a password!</span> -->
+      <span
+        >Немає акаунту? Бажаєте
+        <a (click)="navigateToSingUp()">Створити</a>?</span
+      >
+    </div>
+    <div class="actions">
+      <button class="submit-button" type="submit">Увійти</button>
+      <button class="cancel-button" type="button" (click)="closeHandler()">
+        Назад
+      </button>
+    </div>
+  </form>
+</div>
+<app-sign-up
+  *ngIf="isRegisterModalOpened"
+  (onClose)="handleClose()"
+></app-sign-up>

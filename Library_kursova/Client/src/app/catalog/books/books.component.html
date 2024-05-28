@@ -1,0 +1,28 @@
+<section class="container-of-books">
+  <select
+    class="filter-like-new form-select"
+    [(ngModel)]="selectedFilter"
+    (change)="onFilterChange()"
+  >
+    <option value="like">За кількістю вподобайок</option>
+    <option value="new">За новизною</option>
+  </select>
+  <ul class="books">
+    <app-book *ngFor="let book of books" [bookDTO]="book"></app-book>
+  </ul>
+  <div class="pagination-class" *ngIf="pagination">
+    <pagination
+      [boundaryLinks]="true"
+      [totalItems]="pagination.totalItems"
+      [itemsPerPage]="pagination.itemsPerPage"
+      [maxSize]="10"
+      [(ngModel)]="pagination.currentPage"
+      (pageChanged)="pageChanged($event)"
+      previousText="&lsaquo;"
+      nextText="&rsaquo;"
+      firstText="&laquo;"
+      lastText="&raquo;"
+    >
+    </pagination>
+  </div>
+</section>

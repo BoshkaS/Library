@@ -1,0 +1,15 @@
+<div class="filters" *ngIf="!isLoading">
+  <button class="clean-filters" (click)="cleanFilters()">
+    Анулювати фільтри
+  </button>
+  <ul class="additional-filters">
+    <app-filter-item
+      *ngFor="let filter of dummyFilters"
+      [placeholder]="filter.name"
+      active="selected-option"
+      [selectedOptions]="filter.selectedOptions"
+      [options]="filter.options"
+    ></app-filter-item>
+  </ul>
+  <button class="add-filters" (click)="addFilters()">Застосувати</button>
+</div>

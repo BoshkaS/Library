@@ -1,0 +1,27 @@
+.container-of-novelties {
+  margin-top: 40px;
+}
+.container-of-novelties h2 {
+    margin-bottom: 50px;
+    font-weight: 600;
+}
+
+.novelties {
+  display: flex;
+  flex-direction: row;
+  list-style: none;
+  gap: 35px;
+  overflow-x: auto;
+  margin: 0;
+  padding: 0;
+}
+
+::ng-deep .p-carousel-indicators {
+  display: none;
+}
+
+::ng-deep .p-carousel-prev, ::ng-deep .p-carousel-next {
+    border: none;
+    background-color: transparent;
+}
+

@@ -1,0 +1,30 @@
+<a
+  class="popular-book"
+  [routerLink]="['//book', popularBook.book.bookId]"
+  routerLinkActive="active"
+>
+  <div
+    class="popular-book-image"
+    [style.backgroundImage]="'url(' + popularBook.book.bookImage + ')'"
+  ></div>
+  <div class="content-container">
+    <span class="popular-book-type">{{ popularBook.category }}</span>
+    <span class="popular-book-name">{{ popularBook.book.title }}</span>
+    <span class="popular-book-author">{{ popularBook.authorNames }}</span>
+
+    <ul class="popular-book-labels">
+      <li class="popular-book-label">
+        <i class="material-symbols-outlined">book</i
+        >{{ popularBook.book.numberOfBorrows }}
+      </li>
+      <li class="popular-book-label">
+        <i class="material-symbols-outlined">rate_review</i
+        ><span>{{ popularBook.book.numberOfComments }}</span>
+      </li>
+      <li class="popular-book-label">
+        <i class="material-symbols-outlined">thumb_up</i
+        >{{ popularBook.book.numberOfLikes }}
+      </li>
+    </ul>
+  </div>
+</a>

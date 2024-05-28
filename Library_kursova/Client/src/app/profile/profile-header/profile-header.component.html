@@ -1,0 +1,29 @@
+<div class="profile-avatar-background">
+  <div class="profile-background">
+    <div class="profile-avatar-nickname">
+      <div
+        class="profile-avatar"
+        [style.backgroundImage]="'url(' + this.userDTO.userImage + ')'"
+      ></div>
+
+      <p class="profile-nickname">{{ userDTO.nickname }}</p>
+    </div>
+  </div>
+  <ul class="profile-navigation">
+    <li>
+      <a class="prof-nav-a" routerLink="bookmarks" routerLinkActive="active"
+        >Закладинки</a
+      >
+    </li>
+    <!-- <li>
+      <a class="prof-nav-a" routerLink="borrows" routerLinkActive="active"
+        >Позичені</a
+      >
+    </li> -->
+    <li>
+      <a class="prof-nav-a" routerLink="settings" routerLinkActive="active"
+        >Налаштування</a
+      >
+    </li>
+  </ul>
+</div>

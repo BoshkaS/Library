@@ -1,0 +1,8 @@
+<a
+  class="noveltie-book-container"
+  [routerLink]="['//book', noveltie.bookId]"
+  routerLinkActive="active"
+>
+  <div class="noveltie-book-image" [style.backgroundImage]="'url(' + noveltie.bookImage + ')'"></div>
+  <span>{{ noveltie.title }}</span>
+</a>

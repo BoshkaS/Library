@@ -1,0 +1,31 @@
+<div
+  class="backdrop"
+  (click)="closeHandler()"
+>
+<form
+  #postForm="ngForm"
+  (ngSubmit)="onCreateHouse(postForm.value)"
+  (click)="handleStopPropagation($event)"
+  class="modal"
+>
+<header class="form-header"><h2>Додати видавництво</h2></header>
+  <div class="form-body">
+    <label for="pseudonym">Назва видавництва</label>
+    <input
+      type="text"
+      class="form-control"
+      id="name"
+      required
+      ngModel
+      name="name"
+      placeholder="Введіть назву видавництва"
+    />
+  </div>
+  <div class="button-group">
+    <button class="cancel" type="button" (click)="closeHandler()">Назад</button>
+    <button class="submit" type="submit" [disabled]="!postForm.valid">
+      Створити
+    </button>
+  </div>
+</form>
+</div>

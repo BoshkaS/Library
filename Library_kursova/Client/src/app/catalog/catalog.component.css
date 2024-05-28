@@ -1,0 +1,9 @@
+.catalog {
+    display: grid;
+    grid-template-columns: 1fr 300px;
+    margin-top: 40px;
+}
+
+.filter-like-new {
+    margin-bottom: 10px;
+}

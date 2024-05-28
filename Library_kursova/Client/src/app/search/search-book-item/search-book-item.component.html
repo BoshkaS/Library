@@ -1,0 +1,14 @@
+<a
+  class="search-book"
+  [routerLink]="['/book', searchBook.book.bookId]"
+  routerLinkActive="active"
+>
+  <div
+    class="search-book-image"
+    [style.backgroundImage]="'url(' + searchBook.book.bookImage + ')'"
+  ></div>
+  <div class="content-container">
+    <span class="search-book-name">{{ searchBook.book.title }}</span>
+    <span class="search-book-author">{{ searchBook.authorNames }}</span>
+  </div>
+</a>

@@ -1,0 +1,15 @@
+<li class="filter-item">
+    <div class="filter-title" (click)="openHandler()">
+        <span>{{placeholder}}</span>
+        <i class="material-symbols-outlined">expand_more</i>
+    </div>
+    <div [class]="{opened: isOpen, 'scalable-container': true}">
+        <div>
+            <app-selector [placeholder]="placeholder" active="selected-option" [extends]="true" [values]="selectedOptions" (onSelect)="selectHandler($event)">
+                <ul #selectorOptions>
+                    <li *ngFor="let option of options" [attr.optionValue]='option'>{{option}}</li>
+                </ul>
+            </app-selector>
+        </div>
+    </div>
+</li>

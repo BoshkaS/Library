@@ -1,0 +1,48 @@
+<div *ngIf="this.randomBook != null" class="book-gif-container">
+  <div class="random-book-container">
+    <div class="random-book-title">
+      <div class="text-gif">
+        <h2>Випадкова книга</h2>
+      </div>
+      <a
+        class="random-book"
+        [routerLink]="['//book', randomBook.book.bookId]"
+        routerLinkActive="active"
+      >
+        <div
+          class="random-book-image"
+          [style.backgroundImage]="'url(' + randomBook.book.bookImage + ')'"
+        ></div>
+        <div class="content-container">
+          <span class="random-book-type">{{ randomBook.category }}</span>
+          <span class="random-book-name">{{ randomBook.book.title }}</span>
+          <span class="random-book-author">{{ randomBook.authorNames }}</span>
+
+          <ul class="random-book-labels">
+            <li class="random-book-label">
+              <i class="material-symbols-outlined">book</i
+              >{{ randomBook.book.numberOfBorrows }}
+            </li>
+            <li class="random-book-label">
+              <i class="material-symbols-outlined">rate_review</i
+              ><span>{{ randomBook.book.numberOfComments }}</span>
+            </li>
+            <li class="random-book-label">
+              <i class="material-symbols-outlined">thumb_up</i
+              >{{ randomBook.book.numberOfLikes }}
+            </li>
+          </ul>
+        </div>
+      </a>
+    </div>
+    <img class="cat-image" src="../../assets/images/cat-gray.gif" alt="" />
+    <div class="choose-types">
+      <button class="btn-random" (click)="generateRandomBook()">Рандом</button>
+      <!-- <app-selector placeholder="Виберіть категорії" active="selected-option" (onSelect)="addSelectedOptionHandler($event)" [values]="selectedOptions">
+                <ul #selectorOptions>
+                    <li *ngFor="let category of categories" [attr.optionValue]="category">{{category}}</li>
+                </ul>
+            </app-selector> -->
+    </div>
+  </div>
+</div>

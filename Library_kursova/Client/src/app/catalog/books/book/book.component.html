@@ -1,0 +1,12 @@
+<a
+  class="book-container"
+  [routerLink]="['//book', bookDTO.book.bookId]"
+  routerLinkActive="active"
+>
+  <div
+    class="book-image"
+    [style.backgroundImage]="'url(' + bookDTO.book.bookImage + ')'"
+  ></div>
+  <span>{{ bookDTO.book.title }}</span>
+  <!-- <span>{{bookDTO.book.title}}</span> -->
+</a>

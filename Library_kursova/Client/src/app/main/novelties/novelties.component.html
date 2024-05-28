@@ -1,0 +1,13 @@
+<section class="container-of-novelties">
+  <h2>Новинки</h2>
+  <p-carousel
+    [value]="novelties"
+    [numVisible]="6"
+    [numScroll]="2"
+    [circular]="true"
+  >
+    <ng-template let-noveltie pTemplate="item">
+      <app-novelties-item [noveltie]="noveltie"> </app-novelties-item>
+    </ng-template>
+  </p-carousel>
+</section>

@@ -1,0 +1,79 @@
+.backdrop {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 10;
+}
+
+.modal {
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 15px;
+  overflow: hidden;
+  background-color: white;
+  z-index: 100;
+  width: 400px;
+  display: flex;
+  flex-direction: column;
+  height: auto;
+}
+
+.form-header {
+  padding: 20px;
+  background-color: #f0f0f0;
+}
+
+.form-header h2 {
+  margin: 0;
+}
+
+.form-body {
+  padding: 20px 50px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.form-body a {
+  color: #e19f3d;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.actions {
+  display: flex;
+  justify-content: flex-end;
+  padding: 20px;
+  gap: 10px;
+}
+
+.submit-button {
+  background-color: #e19f3d;
+  border-radius: 8px;
+  border: none;
+  padding: 10px 20px;
+  color: white;
+}
+
+.cancel-button {
+  background-color: white;
+  border-radius: 8px;
+  border: #e19f3d solid 1px;
+  padding: 10px 20px;
+  color: #e19f3d;
+}
+
+.input {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.input-login {
+  padding: 10px 10px;
+  border-radius: 8px;
+  border: #aaa8a8 solid 1px;
+}

@@ -1,0 +1,197 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\bozen\\kursova\\Library_kursova\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{5F45A7A9-CCA1-438D-816E-5741A3126C4F}|Library_kursova\\Library_kursova.csproj|c:\\users\\bozen\\kursova\\library_kursova\\library_kursova\\controllers\\bookcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5F45A7A9-CCA1-438D-816E-5741A3126C4F}|Library_kursova\\Library_kursova.csproj|solutionrelative:library_kursova\\controllers\\bookcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5F45A7A9-CCA1-438D-816E-5741A3126C4F}|Library_kursova\\Library_kursova.csproj|C:\\Users\\bozen\\kursova\\Library_kursova\\library_kursova\\controllers\\userscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5F45A7A9-CCA1-438D-816E-5741A3126C4F}|Library_kursova\\Library_kursova.csproj|solutionrelative:library_kursova\\controllers\\userscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5F45A7A9-CCA1-438D-816E-5741A3126C4F}|Library_kursova\\Library_kursova.csproj|C:\\Users\\bozen\\kursova\\Library_kursova\\library_kursova\\controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5F45A7A9-CCA1-438D-816E-5741A3126C4F}|Library_kursova\\Library_kursova.csproj|solutionrelative:library_kursova\\controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5F45A7A9-CCA1-438D-816E-5741A3126C4F}|Library_kursova\\Library_kursova.csproj|C:\\Users\\bozen\\kursova\\Library_kursova\\library_kursova\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5F45A7A9-CCA1-438D-816E-5741A3126C4F}|Library_kursova\\Library_kursova.csproj|solutionrelative:library_kursova\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5F45A7A9-CCA1-438D-816E-5741A3126C4F}|Library_kursova\\Library_kursova.csproj|C:\\Users\\bozen\\kursova\\Library_kursova\\library_kursova\\dto\\bookdtorequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5F45A7A9-CCA1-438D-816E-5741A3126C4F}|Library_kursova\\Library_kursova.csproj|solutionrelative:library_kursova\\dto\\bookdtorequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5F45A7A9-CCA1-438D-816E-5741A3126C4F}|Library_kursova\\Library_kursova.csproj|C:\\Users\\bozen\\kursova\\Library_kursova\\library_kursova\\dto\\bookrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5F45A7A9-CCA1-438D-816E-5741A3126C4F}|Library_kursova\\Library_kursova.csproj|solutionrelative:library_kursova\\dto\\bookrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5F45A7A9-CCA1-438D-816E-5741A3126C4F}|Library_kursova\\Library_kursova.csproj|C:\\Users\\bozen\\kursova\\Library_kursova\\library_kursova\\dto\\photodto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5F45A7A9-CCA1-438D-816E-5741A3126C4F}|Library_kursova\\Library_kursova.csproj|solutionrelative:library_kursova\\dto\\photodto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5F45A7A9-CCA1-438D-816E-5741A3126C4F}|Library_kursova\\Library_kursova.csproj|C:\\Users\\bozen\\kursova\\Library_kursova\\library_kursova\\services\\photoservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5F45A7A9-CCA1-438D-816E-5741A3126C4F}|Library_kursova\\Library_kursova.csproj|solutionrelative:library_kursova\\services\\photoservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5F45A7A9-CCA1-438D-816E-5741A3126C4F}|Library_kursova\\Library_kursova.csproj|C:\\Users\\bozen\\kursova\\Library_kursova\\library_kursova\\dto\\photorequestdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5F45A7A9-CCA1-438D-816E-5741A3126C4F}|Library_kursova\\Library_kursova.csproj|solutionrelative:library_kursova\\dto\\photorequestdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 4,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{0ad07096-bba9-4900-a651-0598d26f6d24}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "BookRequest.cs",
+              "DocumentMoniker": "C:\\Users\\bozen\\kursova\\Library_kursova\\Library_kursova\\DTO\\BookRequest.cs",
+              "RelativeDocumentMoniker": "Library_kursova\\DTO\\BookRequest.cs",
+              "ToolTip": "C:\\Users\\bozen\\kursova\\Library_kursova\\Library_kursova\\DTO\\BookRequest.cs",
+              "RelativeToolTip": "Library_kursova\\DTO\\BookRequest.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-27T16:14:29.412Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "BookDTORequest.cs",
+              "DocumentMoniker": "C:\\Users\\bozen\\kursova\\Library_kursova\\Library_kursova\\DTO\\BookDTORequest.cs",
+              "RelativeDocumentMoniker": "Library_kursova\\DTO\\BookDTORequest.cs",
+              "ToolTip": "C:\\Users\\bozen\\kursova\\Library_kursova\\Library_kursova\\DTO\\BookDTORequest.cs",
+              "RelativeToolTip": "Library_kursova\\DTO\\BookDTORequest.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-27T16:14:21.746Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "BookController.cs",
+              "DocumentMoniker": "C:\\Users\\bozen\\kursova\\Library_kursova\\Library_kursova\\Controllers\\BookController.cs",
+              "RelativeDocumentMoniker": "Library_kursova\\Controllers\\BookController.cs",
+              "ToolTip": "C:\\Users\\bozen\\kursova\\Library_kursova\\Library_kursova\\Controllers\\BookController.cs",
+              "RelativeToolTip": "Library_kursova\\Controllers\\BookController.cs",
+              "ViewState": "AQIAAN8AAAAAAAAAAAAwwP8AAAAIAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-27T16:14:10Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "PhotoService.cs",
+              "DocumentMoniker": "C:\\Users\\bozen\\kursova\\Library_kursova\\Library_kursova\\Services\\PhotoService.cs",
+              "RelativeDocumentMoniker": "Library_kursova\\Services\\PhotoService.cs",
+              "ToolTip": "C:\\Users\\bozen\\kursova\\Library_kursova\\Library_kursova\\Services\\PhotoService.cs",
+              "RelativeToolTip": "Library_kursova\\Services\\PhotoService.cs",
+              "ViewState": "AQIAADIAAAAAAAAAAAAwwDIAAAA9AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-27T10:35:39.414Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "PhotoDTO.cs",
+              "DocumentMoniker": "C:\\Users\\bozen\\kursova\\Library_kursova\\Library_kursova\\DTO\\PhotoDTO.cs",
+              "RelativeDocumentMoniker": "Library_kursova\\DTO\\PhotoDTO.cs",
+              "ToolTip": "C:\\Users\\bozen\\kursova\\Library_kursova\\Library_kursova\\DTO\\PhotoDTO.cs",
+              "RelativeToolTip": "Library_kursova\\DTO\\PhotoDTO.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAMAAAAFAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-27T10:31:12.749Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "PhotoRequestDTO.cs",
+              "DocumentMoniker": "C:\\Users\\bozen\\kursova\\Library_kursova\\Library_kursova\\DTO\\PhotoRequestDTO.cs",
+              "RelativeDocumentMoniker": "Library_kursova\\DTO\\PhotoRequestDTO.cs",
+              "ToolTip": "C:\\Users\\bozen\\kursova\\Library_kursova\\Library_kursova\\DTO\\PhotoRequestDTO.cs",
+              "RelativeToolTip": "Library_kursova\\DTO\\PhotoRequestDTO.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAQAAAAaAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-27T10:30:54.942Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "AccountController.cs",
+              "DocumentMoniker": "C:\\Users\\bozen\\kursova\\Library_kursova\\Library_kursova\\Controllers\\AccountController.cs",
+              "RelativeDocumentMoniker": "Library_kursova\\Controllers\\AccountController.cs",
+              "ToolTip": "C:\\Users\\bozen\\kursova\\Library_kursova\\Library_kursova\\Controllers\\AccountController.cs",
+              "RelativeToolTip": "Library_kursova\\Controllers\\AccountController.cs",
+              "ViewState": "AQIAADYAAAAAAAAAAAAmwEsAAAAJAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-27T10:17:37.384Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "UsersController.cs",
+              "DocumentMoniker": "C:\\Users\\bozen\\kursova\\Library_kursova\\Library_kursova\\Controllers\\UsersController.cs",
+              "RelativeDocumentMoniker": "Library_kursova\\Controllers\\UsersController.cs",
+              "ToolTip": "C:\\Users\\bozen\\kursova\\Library_kursova\\Library_kursova\\Controllers\\UsersController.cs",
+              "RelativeToolTip": "Library_kursova\\Controllers\\UsersController.cs",
+              "ViewState": "AQIAADwAAAAAAAAAAAAtwF4AAAAJAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-27T10:03:48.475Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\bozen\\kursova\\Library_kursova\\Library_kursova\\Program.cs",
+              "RelativeDocumentMoniker": "Library_kursova\\Program.cs",
+              "ToolTip": "C:\\Users\\bozen\\kursova\\Library_kursova\\Library_kursova\\Program.cs",
+              "RelativeToolTip": "Library_kursova\\Program.cs",
+              "ViewState": "AQIAAB8AAAAAAAAAAAAAACwAAAAxAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-21T16:56:40.115Z"
+            }
+          ]
+        },
+        {
+          "DockedWidth": 201,
+          "SelectedChildIndex": -1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{b1e99781-ab81-11d0-b683-00aa00a3ee26}"
+            }
+          ]
+        },
+        {
+          "DockedWidth": 240,
+          "SelectedChildIndex": -1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{a80febb4-e7e0-4147-b476-21aaf2453969}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{d78612c7-9962-4b83-95d9-268046dad23a}"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

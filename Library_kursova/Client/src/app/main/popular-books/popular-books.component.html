@@ -1,0 +1,13 @@
+<section class="container-of-popular">
+  <h2>Популярні</h2>
+  <p-carousel
+    [value]="popularBooks"
+    [numVisible]="2"
+    [numScroll]="1"
+    [circular]="true"
+  >
+    <ng-template let-popularBook pTemplate="item">
+      <app-popular-book [popularBook]="popularBook"> </app-popular-book>
+    </ng-template>
+  </p-carousel>
+</section>

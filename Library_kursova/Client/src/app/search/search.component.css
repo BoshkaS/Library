@@ -1,0 +1,64 @@
+.backdrop {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 10;
+}
+
+.modal {
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 15px;
+  overflow: hidden;
+  background-color: white;
+  z-index: 100;
+  width: 600px;
+  display: flex;
+  flex-direction: column;
+  height: auto;
+  /* padding: 10px; */
+  /* padding: 50px 20px; */
+}
+
+/* .modal form {
+  display: flex;
+  gap: 10px;
+  width: 100%;
+} */
+
+.form-header {
+  padding: 20px;
+  background-color: #f0f0f0;
+}
+
+.form-header h2 {
+  margin: 0;
+}
+
+.form-body {
+  padding: 20px 50px;
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+}
+
+.submit-button {
+  background-color: #e19f3d;
+  border-radius: 8px;
+  border: none;
+  padding: 10px 20px;
+  color: white;
+}
+
+.input-search {
+  padding: 10px 10px;
+  border-radius: 8px;
+  border: #aaa8a8 solid 1px;
+  width: 100%;
+}
+
+.list-of-searchong-books {
+  padding: 10px 50px;
+}

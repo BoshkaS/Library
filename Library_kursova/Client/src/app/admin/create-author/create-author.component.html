@@ -1,0 +1,30 @@
+<div class="backdrop" (click)="closeHandler()">
+  <form
+    #postForm="ngForm"
+    (ngSubmit)="onCreateAuthor(postForm.value)"
+    (click)="handleStopPropagation($event)"
+    class="modal"
+  >
+    <header class="form-header"><h2>Додати автора</h2></header>
+    <div class="form-body">
+      <label for="pseudonym">Псевдонім автора</label>
+      <input
+        type="text"
+        class="form-control"
+        id="pseudonym"
+        required
+        ngModel
+        name="pseudonym"
+        placeholder="Введіть псевдонім"
+      />
+    </div>
+    <div class="button-group">
+      <button class="cancel" type="button" (click)="closeHandler()">
+        Назад
+      </button>
+      <button class="submit" type="submit" [disabled]="!postForm.valid">
+        Створити
+      </button>
+    </div>
+  </form>
+</div>

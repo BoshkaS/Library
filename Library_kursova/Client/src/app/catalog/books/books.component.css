@@ -1,0 +1,40 @@
+.books {
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
+  gap: 15px;
+  margin: 0;
+  padding: 0;
+}
+
+::ng-deep .pagination-class ul.pagination {
+  display: flex;
+  padding-left: 0;
+  margin: 20px 0;
+  border-radius: 4px;
+  justify-content: center;
+}
+
+::ng-deep .pagination-class ul.pagination li {
+  display: inline;
+}
+
+::ng-deep .pagination-class ul.pagination li a {
+  color: black;
+}
+
+.form-select {
+  width: min-content;
+  margin-bottom: 10px;
+}
+
+::ng-deep .pagination-class ul.pagination li.active a {
+  background-color: #e19f3d;
+  color: white;
+  border-color: #e19f3d;
+}
+
+::ng-deep .pagination-class ul.pagination li a:hover:not(.active) {
+  background-color: #ddd;
+  color: black;
+}

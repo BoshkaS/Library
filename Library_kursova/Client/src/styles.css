@@ -1,0 +1,28 @@
+@import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
+body {
+  margin: 0;
+  font-family: sans-serif;
+}
+
+.material-symbols-outlined {
+  color: #aaa8a8;
+  cursor: pointer;
+  user-select: none;
+}
+
+.dropdown-container {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-container:focus > .dropdown-content {
+  display: block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  z-index: 1;
+  left: 0;
+  top: 100%;
+}

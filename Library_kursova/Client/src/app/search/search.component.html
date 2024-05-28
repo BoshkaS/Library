@@ -1,0 +1,28 @@
+<div class="backdrop" (click)="closeHandler()">
+  <div class="modal" (click)="handleStopPropagation($event)">
+    <form #postForm="ngForm" (ngSubmit)="onSearch()">
+      <header class="form-header"><h2>Пошук</h2></header>
+      <div class="form-body">
+        <input
+          name="content"
+          [(ngModel)]="searchString"
+          class="input-search"
+          type="text"
+          placeholder="Пошук"
+          required
+          minlength="3"
+          #textInput="ngModel"
+        />
+
+        <button class="submit-button" type="submit">Пошук</button>
+      </div>
+    </form>
+    <ul class="list-of-searchong-books">
+      <app-search-book-item
+        *ngFor="let book of booksDTO"
+        [searchBook]="book"
+        (click)="closeHandler()"
+      ></app-search-book-item>
+    </ul>
+  </div>
+</div>

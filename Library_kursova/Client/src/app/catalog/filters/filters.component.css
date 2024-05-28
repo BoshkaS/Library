@@ -1,0 +1,38 @@
+.additional-filters {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    list-style: none;
+    padding: 0;
+}
+
+.additional-filters i {
+    display: flex;
+}
+
+.material-symbols-outlined {
+    margin-top: 10px;
+}
+
+.clean-filters {
+    display: block;
+    margin: 0 auto;
+    border-radius: 8px;
+    border: 1px solid #e19f3d;
+    padding: 10px 20px;
+    color: #e19f3d;
+    background-color: white;
+}
+
+.add-filters {
+    border-radius: 8px;
+    border: none;
+    padding: 10px 20px;
+    background-color: #e19f3d;
+    color: white;
+    width: 100%;
+    
+}
+
+
+
