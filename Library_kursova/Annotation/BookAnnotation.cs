@@ -21,7 +21,8 @@ namespace Library_kursova.Annotation
             this.ModelBuilder.Property(b => b.YearOfPublication).IsRequired().HasColumnName("year_of_publication");
             this.ModelBuilder.Property(b => b.CreatedDate).IsRequired().HasColumnName("created_date");
             this.ModelBuilder.Property(b => b.ModifiedDate).HasColumnName("modified_date").IsRequired(false);
-
+            this.ModelBuilder.Property(b => b.TotalCopies).HasColumnName("total_copies");
+            this.ModelBuilder.Property(b => b.AvailableCopies).HasColumnName("available_copies");
             this.ModelBuilder.Property(c => c.LanguageId).HasColumnName("language_id");
             this.ModelBuilder.Property(c => c.PublishingHouseId).HasColumnName("publishing_house_id");
             this.ModelBuilder.Property(c => c.CategoryId).HasColumnName("category_id");

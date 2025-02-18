@@ -20,6 +20,10 @@ namespace Library_kursova.Entities
 
         public int YearOfPublication { get; set; }
 
+        public int TotalCopies {  get; set; }
+
+        public int AvailableCopies { get; set; }
+
         public int LanguageId { get; set; }
 
         [JsonIgnore]
@@ -41,6 +45,9 @@ namespace Library_kursova.Entities
 
         [JsonIgnore]
         public virtual ICollection<BorrowsBook> BookBorrows { get; set; }
+
+        [JsonIgnore]
+        public virtual ICollection<BookCopy> Copies { get; set; }
 
         public int PublishingHouseId { get; set; }
 

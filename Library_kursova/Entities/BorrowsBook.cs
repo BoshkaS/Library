@@ -11,13 +11,13 @@ namespace Library_kursova.Entities
         [JsonIgnore]
         public User User { get; set; }
 
-        public int BookId { get; set; }
+        public int BookCopyId { get; set; }
 
         [JsonIgnore]
-        public Book Book { get; set; }
+        public BookCopy BookCopy { get; set; }
 
-        public DateOnly DateOfBorrowing { get; set; }
+        public DateOnly BorrowDate { get; set; }
 
-        public DateOnly DateOfBorrowingExpiration { get; set; }
+        public DateOnly ReturnDate { get; set; }
     }
 }
