@@ -1,0 +1,79 @@
+<div class="borrow-container">
+  <h2>Позичити книгу</h2>
+
+  <div *ngIf="!isMember" class="alert warning">
+    Цей користувач не є членом бібліотеки. Перевірте його інформацію.
+    <button class="small-button" (click)="goToSettings()">
+      Перейти до налаштувань
+    </button>
+  </div>
+
+  <div *ngIf="isMember">
+    <label for="search">Пошук книги:</label>
+    <div class="search-book">
+      <input
+        id="search"
+        class="form-control"
+        [(ngModel)]="searchTerm"
+        placeholder="Назва книги"
+      />
+      <button class="submit" (click)="searchBooks()">Знайти</button>
+    </div>
+
+    <ul *ngIf="books.length > 0" class="book-list">
+      <li
+        *ngFor="let bookItem of books"
+        (click)="selectBook(bookItem.book.bookId)"
+        class="book-item"
+      >
+        <div class="book-info">
+          <img
+            [src]="bookItem.book.bookImage"
+            alt="{{ bookItem.book.title }}"
+            class="book-cover"
+          />
+          <div class="book-details">
+            <h4>{{ bookItem.book.title }}</h4>
+            <p>
+              <strong>Автори:</strong> {{ bookItem.authorNames.join(", ") }}
+            </p>
+            <p><strong>Видавництво:</strong> {{ bookItem.publishingHouse }}</p>
+          </div>
+        </div>
+      </li>
+    </ul>
+
+    <div *ngIf="selectedBookId !== null">
+      <ng-container *ngIf="availabilityInfo; else loading">
+        <p>Доступні копії: {{ availabilityInfo.availableCopies }}</p>
+
+        <p *ngIf="availabilityInfo.isFullyOccupied">
+          Найближча дата доступності:
+          {{
+            availabilityInfo.soonestAvailableDate
+              ? (availabilityInfo.soonestAvailableDate
+                | date : "dd.MM.yyyy, HH:mm")
+              : "невідома"
+          }}
+        </p>
+
+        <button
+          class="borrow-book-button"
+          [disabled]="availabilityInfo.availableCopies === 0"
+          (click)="borrow()"
+        >
+          Позичити книгу
+        </button>
+      </ng-container>
+
+      <ng-template #loading>
+        <p>Завантаження доступності...</p>
+      </ng-template>
+
+      <p *ngIf="error" class="text-danger">{{ error }}</p>
+    </div>
+
+    <div *ngIf="error" class="alert error">{{ error }}</div>
+    <div *ngIf="success" class="alert success">{{ success }}</div>
+  </div>
+</div>

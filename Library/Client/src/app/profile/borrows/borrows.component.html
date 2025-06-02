@@ -1,0 +1,17 @@
+<section>
+  <div class="btn-wrapper">
+    <button *ngIf="isAdmin" class="borrow-btn" (click)="goToCreateBorrowing()">
+      Додати позичення
+    </button>
+  </div>
+  <div *ngIf="borrowsBooks.length === 0" class="no-results">
+    Нічого не знайдено.
+  </div>
+
+  <ul class="borrows">
+    <app-borrow-book-item
+      *ngFor="let borrowBook of borrowsBooks"
+      [borrowBook]="borrowBook"
+    ></app-borrow-book-item>
+  </ul>
+</section>

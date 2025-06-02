@@ -1,0 +1,27 @@
+<div class="request-card">
+  <div class="request-content">
+    <p class="request-user">
+      <strong>{{ requestDate.userEmail }}</strong> просить продовжити термін
+      здачі
+    </p>
+    <p class="request-book">
+      <strong>"{{ requestDate.bookTitle }}"</strong> (ID копії:
+      {{ requestDate.bookCopyId }})
+    </p>
+    <p class="request-dates">
+      Поточна дата повернення:
+      <strong>{{ formattedReturnDate }}</strong>
+    </p>
+    <p class="request-dates">
+      Дата запиту: <strong>{{ formattedRequestDate }}</strong>
+    </p>
+  </div>
+  <div class="request-actions">
+    <i class="material-symbols-outlined accept-icon" (click)="acceptRequest()"
+      >check</i
+    >
+    <i class="material-symbols-outlined reject-icon" (click)="rejectRequest()"
+      >close</i
+    >
+  </div>
+</div>

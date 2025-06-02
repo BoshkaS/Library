@@ -1,0 +1,51 @@
+<section class="container-of-books">
+  <div class="custom-dropdown" (click)="toggleDropdown()">
+    <span>{{ selectedFilterLabel }}</span>
+    <div class="arrow" [class.open]="dropdownOpen"></div>
+    <ul *ngIf="dropdownOpen" class="custom-options">
+      <li
+        *ngFor="let filter of filters"
+        [class.selected]="filter.value === selectedFilter"
+        (click)="selectFilter(filter.value)"
+      >
+        {{ filter.label }}
+      </li>
+    </ul>
+  </div>
+
+  <div *ngIf="isLoading" class="d-flex flex-column align-items-center mt-5">
+    <div
+      class="spinner-border text-secondary"
+      role="status"
+      style="width: 3rem; height: 3rem"
+    >
+      <span class="visually-hidden">Loading...</span>
+    </div>
+    <p class="mt-2 text-muted">Завантаження книг...</p>
+  </div>
+
+  <!-- No books found -->
+  <div *ngIf="!isLoading && books.length === 0" class="no-books">
+    <p>Немає книг за обраним фільтром...</p>
+    <p class="tip">Спробуйте змінити фільтр або перевірте інші категорії.</p>
+  </div>
+
+  <ul class="books" *ngIf="!isLoading && books.length > 0">
+    <app-book *ngFor="let book of books" [bookDTO]="book"></app-book>
+  </ul>
+
+  <div class="pagination-class" *ngIf="pagination && books.length > 0">
+    <pagination
+      [boundaryLinks]="true"
+      [totalItems]="pagination.totalItems"
+      [itemsPerPage]="pagination.itemsPerPage"
+      [maxSize]="10"
+      [(ngModel)]="pagination.currentPage"
+      (pageChanged)="pageChanged($event)"
+      previousText="&lsaquo;"
+      nextText="&rsaquo;"
+      firstText="&laquo;"
+      lastText="&raquo;"
+    ></pagination>
+  </div>
+</section>

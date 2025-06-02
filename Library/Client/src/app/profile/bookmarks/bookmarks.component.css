@@ -1,0 +1,34 @@
+.container-of-bookmarks {
+  display: flex;
+  flex-direction: column;
+}
+
+.bookmarks-header {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 15px;
+}
+
+.search-input {
+  padding: 6px 12px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-size: 16px;
+  width: 250px;
+}
+
+.bookmarks {
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
+  gap: 35px;
+  margin: 0;
+}
+
+.no-results {
+  text-align: center;
+  font-style: italic;
+  color: #777;
+  margin-top: 20px;
+  font-size: 18px;
+}

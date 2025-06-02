@@ -1,0 +1,11 @@
+<section class="container-of-reserved">
+  <div *ngIf="reservedBooks.length === 0" class="no-results">
+    Нічого не знайдено.
+  </div>
+  <ul class="reserved">
+    <app-reservation-item
+      *ngFor="let reservedBook of reservedBooks"
+      [reservedBook]="reservedBook"
+    ></app-reservation-item>
+  </ul>
+</section>

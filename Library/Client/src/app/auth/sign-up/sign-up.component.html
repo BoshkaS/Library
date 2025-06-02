@@ -1,0 +1,79 @@
+<div class="backdrop" (click)="closeHandler()">
+  <form
+    #registerForm="ngForm"
+    class="modal"
+    (click)="handleStopPropagation($event)"
+    (ngSubmit)="register()"
+    autocomplete="off"
+  >
+    <header class="form-header"><h2>Створити акаунт</h2></header>
+    <div class="form-body">
+      <label for="sign-in-password" class="input">
+        <span>Ім'я</span>
+        <input
+          class="input-register"
+          type="text"
+          name="firstName"
+          [(ngModel)]="model.firstName"
+          placeholder="Ваше ім'я"
+        />
+      </label>
+      <label htmlFor="sign-in-password" class="input">
+        <span>Прізвище</span>
+        <input
+          class="input-register"
+          type="text"
+          name="lastName"
+          [(ngModel)]="model.lastName"
+          placeholder="Ваше прізвище"
+        />
+      </label>
+      <label htmlFor="sign-in-password" class="input">
+        <span>Нікнейм</span>
+        <input
+          class="input-register"
+          type="text"
+          name="username"
+          [(ngModel)]="model.nickName"
+          placeholder="Придумайте нікнейм"
+        />
+      </label>
+      <label htmlFor="sign-in-password" class="input">
+        <span>Номер телефону</span>
+        <input
+          class="input-register"
+          type="phoneNumber"
+          name="phoneNumber"
+          [(ngModel)]="model.phoneNumber"
+          placeholder="Ваш номер телефону"
+        />
+      </label>
+      <label htmlFor="sign-in-password" class="input">
+        <span>Емейл</span>
+        <input
+          class="input-register"
+          type="text"
+          name="email"
+          [(ngModel)]="model.email"
+          placeholder="Емейл"
+        />
+      </label>
+      <label htmlFor="sign-in-password" class="input">
+        <span>Пароль</span>
+        <input
+          class="input-register"
+          type="password"
+          name="password"
+          [(ngModel)]="model.password"
+          placeholder="Пароль"
+        />
+      </label>
+    </div>
+    <div class="actions">
+      <button class="submit-button" type="submit">Зареєструватися</button>
+      <button class="cancel-button" type="button" (click)="closeHandler()">
+        Назад
+      </button>
+    </div>
+  </form>
+</div>

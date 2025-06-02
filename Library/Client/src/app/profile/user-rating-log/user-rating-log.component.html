@@ -1,0 +1,36 @@
+<div class="rating-log-wrapper" *ngIf="!loading">
+  <h3>Історія змін рейтингу</h3>
+
+  <div *ngIf="ratingLogs.length > 0; else noLogs">
+    <table class="rating-log-table">
+      <thead>
+        <tr>
+          <th>Дата</th>
+          <th>Зміна</th>
+          <th>Причина</th>
+          <th>Після зміни</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let log of ratingLogs">
+          <td>{{ log.changedAt | date : "short" }}</td>
+          <td
+            [ngClass]="{
+              positive: log.changeAmount > 0,
+              negative: log.changeAmount < 0
+            }"
+          >
+            {{ log.changeAmount > 0 ? "+" : ""
+            }}{{ log.changeAmount.toFixed(2) }}
+          </td>
+          <td>{{ log.reason }}</td>
+          <td>{{ log.ratingAfterChange.toFixed(2) }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <ng-template #noLogs>
+    <p>Історія змін рейтингу відсутня.</p>
+  </ng-template>
+</div>

@@ -1,0 +1,44 @@
+<li class="reservation-card">
+  <div class="card-body">
+    <img [src]="reservedBook.bookImage" alt="Book cover" class="book-image" />
+
+    <div class="reservation-info">
+      <div class="title-and-menu">
+        <h3>{{ reservedBook.bookTitle }}</h3>
+        <div
+          #contextMenu
+          class="material-symbols-outlined more-vert"
+          tabindex="2"
+          appDropdown
+        >
+          more_vert
+          <ul appDropdownContent class="book-buttons-content">
+            <li>
+              <a (click)="handleOpenConfirmModal()">Скасувати резервацію</a>
+            </li>
+            <li *ngIf="isAdmin">
+              <a (click)="approveReservation()">Підтвердити резервацію</a>
+            </li>
+            <li><a (click)="navigateToBookDetails()">Детальніше</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <span class="reservation-date"
+        >Зарезервовано:
+        {{ reservedBook.reservedAt | date : "mediumDate" }}</span
+      >
+      <br />
+      <span class="reservation-date"
+        >Дійсне до: {{ reservedBook.expiresAt | date : "mediumDate" }}</span
+      >
+      <p class="countdown">Час до завершення: {{ getCountdown() }}</p>
+    </div>
+  </div>
+</li>
+
+<app-confirm-reservation
+  *ngIf="isModalConfirmOpened"
+  [id]="reservedBook.reservationId"
+  (onSearchClose)="handleConfirmClose()"
+></app-confirm-reservation>

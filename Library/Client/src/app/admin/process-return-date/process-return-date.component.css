@@ -1,0 +1,12 @@
+.container-of-return-requests {
+  margin: 0;
+  padding: 20px 0px;
+}
+
+.no-results {
+  text-align: center;
+  font-style: italic;
+  color: #777;
+  margin-top: 20px;
+  font-size: 18px;
+}

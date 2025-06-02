@@ -1,0 +1,11 @@
+<section class="container-of-return-requests">
+  <h2>Запити на продовження дати повернення</h2>
+  <div *ngIf="requestsForReturning.length === 0" class="no-results">
+    Нічого не знайдено.
+  </div>
+  <app-return-date
+    *ngFor="let request of requestsForReturning"
+    [requestDate]="request"
+    (requestProcessed)="removeRequest($event)"
+  ></app-return-date>
+</section>

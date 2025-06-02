@@ -1,0 +1,108 @@
+<div class="settings">
+  <form
+    #updateUserForm="ngForm"
+    class="settings-form"
+    (ngSubmit)="updateUser()"
+  >
+    <header class="form-header"><h3>Налаштування</h3></header>
+    <div class="form-body">
+      <label class="input">
+        <span>Ім'я</span>
+        <input
+          [disabled]="!isAdmin()"
+          [(ngModel)]="userDTO.firstName"
+          name="firstName"
+          type="text"
+          class="input-update"
+        />
+      </label>
+
+      <label class="input">
+        <span>Прізвище</span>
+        <input
+          [disabled]="!isAdmin()"
+          [(ngModel)]="userDTO.lastName"
+          name="lastName"
+          type="text"
+          class="input-update"
+        />
+      </label>
+
+      <label class="input">
+        <span>Телефон</span>
+        <input
+          [disabled]="!isAdmin()"
+          [(ngModel)]="userDTO.phoneNumber"
+          name="phoneNumber"
+          type="text"
+          class="input-update"
+        />
+      </label>
+
+      <label class="input">
+        <span>Email</span>
+        <input
+          [(ngModel)]="userDTO.email"
+          name="email"
+          type="email"
+          class="input-update"
+          [disabled]="!isAdmin()"
+        />
+      </label>
+
+      <label class="input">
+        <span>Членство</span>
+        <select
+          [disabled]="!isAdmin()"
+          [(ngModel)]="userDTO.isMember"
+          name="isMember"
+          class="input-update"
+        >
+          <option [ngValue]="true">Так</option>
+          <option [ngValue]="false">Ні</option>
+        </select>
+      </label>
+      <label htmlFor="sign-in-password" class="input">
+        <span>Нікнейм</span>
+        <input
+          [(ngModel)]="userDTO.nickname"
+          class="input-update"
+          type="text"
+          name="nickName"
+          id="username"
+        />
+      </label>
+    </div>
+    <button class="submit-button" type="submit">Оновити</button>
+  </form>
+
+  <div class="upload-photo-div">
+    <div class="select-photo">
+      <h3>Оновити аватар</h3>
+      <input
+        type="file"
+        class="file-input"
+        (change)="onChange($event)"
+        #fileUpload
+      />
+      <div class="after-selected-photo">
+        <button class="cancel-button" (click)="fileUpload.click()">
+          Завантажити фото
+        </button>
+        <div *ngIf="file" class="file-name">{{ file.name }}</div>
+      </div>
+    </div>
+
+    <div *ngIf="file">
+      <button class="submit-button" (click)="onUpload()">
+        Змінити фотографію
+      </button>
+      <section [ngSwitch]="status">
+        <p *ngSwitchCase="'uploading'">⏳ Завантаження...</p>
+        <p *ngSwitchCase="'success'">✅ Готово!</p>
+        <p *ngSwitchCase="'fail'">❌ Помилка!</p>
+        <p *ngSwitchDefault>😶 Очікування...</p>
+      </section>
+    </div>
+  </div>
+</div>

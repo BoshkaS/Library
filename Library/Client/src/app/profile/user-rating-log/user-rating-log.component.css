@@ -1,0 +1,30 @@
+.rating-log-wrapper {
+  padding: 1rem;
+  background-color: #f9f9f9;
+  border-radius: 12px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+}
+
+.rating-log-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.rating-log-table th,
+.rating-log-table td {
+  padding: 0.5rem 1rem;
+  border-bottom: 1px solid #ddd;
+}
+
+.rating-log-table th {
+  text-align: left;
+  background-color: #f0f0f0;
+}
+
+.positive {
+  color: green;
+}
+
+.negative {
+  color: red;
+}

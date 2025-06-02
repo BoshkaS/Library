@@ -1,0 +1,198 @@
+<div *ngIf="this.bookDetails != null" class="book-container">
+  <ul class="book-image-buttons">
+    <li>
+      <img class="book-image" [src]="bookDetails.book.bookImage" alt="" />
+    </li>
+    <div class="reserve-wrapper" *ngIf="isLoggedIn">
+      <button class="reserv-book" (click)="handleOpenReservModal()">
+        Забронювати
+      </button>
+    </div>
+    <div *ngIf="similarBooks.length > 0" class="similar-books-section">
+      <h3 class="similar-books-heading">Схожі книги</h3>
+
+      <div class="similar-books">
+        <app-similar-book
+          *ngFor="let similarBook of similarBooks"
+          [similarBook]="similarBook"
+        ></app-similar-book>
+      </div>
+    </div>
+  </ul>
+  <div class="book-extended-details">
+    <div class="title-and-like">
+      <div class="left-group">
+        <h1 class="book-name">{{ bookDetails.book.title }}</h1>
+
+        <i
+          *ngIf="isLiked"
+          class="material-symbols-outlined favorite-icon"
+          (click)="onAddLike()"
+          >favorite</i
+        >
+        <i
+          *ngIf="!isLiked && accountService.currentUser$ | async"
+          class="material-symbols-outlined"
+          (click)="onAddLike()"
+          >favorite</i
+        >
+        <i
+          *ngIf="isBookmark"
+          class="material-symbols-outlined bookmark-icon"
+          (click)="onAddBookmark()"
+          >bookmark</i
+        >
+        <i
+          *ngIf="!isBookmark && accountService.currentUser$ | async"
+          class="material-symbols-outlined"
+          (click)="onAddBookmark()"
+          >bookmark_border</i
+        >
+      </div>
+
+      <div
+        *ngIf="isAdmin"
+        class="material-symbols-outlined more-vert"
+        tabindex="2"
+        appDropdown
+      >
+        <span>more_vert</span>
+        <ul appDropdownContent class="book-buttons-content">
+          <li><a (click)="navigateToEditBook()">Редагувати</a></li>
+          <li><a (click)="handleOpenDeleteModal()">Видалити</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <ul class="book-labels">
+      <li class="book-label">
+        <i class="material-symbols-outlined">book</i>У закладинках:
+        {{ bookDetails.book.numberOfBorrows }}
+      </li>
+      <li class="book-label">
+        <i class="material-symbols-outlined">rate_review</i>Коментарів:
+        {{ bookDetails.book.numberOfComments }}
+      </li>
+      <li class="book-label">
+        <i class="material-symbols-outlined">thumb_up</i>Вподобайок:
+        {{ bookDetails.book.numberOfLikes }}
+      </li>
+    </ul>
+
+    <div class="other-book-details">
+      <div class="book-description">
+        <ul class="book-year-lang">
+          <li class="title-value">
+            <span class="title-detail">Рік випуску</span>
+            <span class="value-detail">{{
+              bookDetails.book.yearOfPublication
+            }}</span>
+          </li>
+          <li class="title-value">
+            <span class="title-detail">Мова</span>
+            <span class="value-detail">{{ bookDetails.language }}</span>
+          </li>
+          <li class="title-value">
+            <span class="title-detail">Статус</span>
+            <span class="value-detail">
+              {{
+                bookDetails.availabilityStatus === "Available"
+                  ? "У наявності"
+                  : bookDetails.availabilityStatus === "Reserved"
+                  ? "Зарезервовано"
+                  : "Позичено"
+              }}
+            </span>
+          </li>
+
+          <li
+            *ngIf="
+              bookDetails.availabilityStatus === 'Reserved' &&
+              bookDetails.nearestReservationExpiry
+            "
+            class="title-value"
+          >
+            <span class="title-detail">Бронь до</span>
+            <span class="value-detail">
+              {{
+                bookDetails.nearestReservationExpiry | date : "dd.MM.yyyy HH:mm"
+              }}
+            </span>
+          </li>
+        </ul>
+        <h4 class="books-headers">Опис</h4>
+        <p class="description">{{ bookDetails.book.description }}</p>
+        <div class="book-reviews">
+          <h4 class="books-headers">Коментарі</h4>
+          <form
+            #postForm="ngForm"
+            (ngSubmit)="onCreateComment(postForm)"
+            class="comment-form"
+          >
+            <input
+              name="content"
+              [(ngModel)]="commentDTO.text"
+              class="input-comment"
+              type="textarea"
+              placeholder="Веддіть коментар(Максимум 300 символів)."
+              required
+              maxlength="300"
+              #textInput="ngModel"
+              [disabled]="!isLoggedIn"
+            />
+            <button class="button-submit" type="submit">Надіслати</button>
+          </form>
+          <ul class="book-user-reviews">
+            <li *ngFor="let user_review of bookDetails.comments">
+              <img
+                class="reviewers-avatar"
+                src="{{ user_review.userImage }}"
+                alt=""
+              />
+              <div>
+                <a
+                  class="reviewers-name"
+                  [routerLink]="['//profile', user_review.userId]"
+                  >{{ user_review.nickName }}</a
+                >
+                <p class="reviewers-comment">{{ user_review.text }}</p>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <ul class="book-main-details">
+        <li>
+          <ul class="book-type-status">
+            <li class="title-value">
+              <span class="title-detail">Тип</span>
+              <span class="value-detail">{{ bookDetails.category }}</span>
+            </li>
+            <!-- <li class="title-value">
+              <span class="title-detail">Статус</span>
+              <span class="value-detail">Позичено</span>
+            </li> -->
+          </ul>
+        </li>
+        <li class="title-value">
+          <span class="title-detail">Автор</span>
+          <span class="value-detail">{{ bookDetails.authorNames[0] }}</span>
+        </li>
+        <li class="title-value">
+          <span class="title-detail">Видавництво</span>
+          <span class="value-detail">{{ bookDetails.publishingHouse }}</span>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+<app-delete-book
+  *ngIf="isModalDeleteOpened"
+  [id]="id"
+  (onSearchClose)="handleDeleteClose()"
+></app-delete-book>
+<app-reserve-book
+  *ngIf="isModalReservOpened"
+  [id]="id"
+  (onSearchClose)="handleReservClose()"
+></app-reserve-book>

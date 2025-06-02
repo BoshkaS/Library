@@ -1,0 +1,66 @@
+<div
+  class="borrow-book"
+  [class.returned]="borrowBook.isReturned"
+  [class.not-returned]="!borrowBook.isReturned"
+  routerLinkActive="active"
+>
+  <div
+    class="borrow-book-image"
+    [style.backgroundImage]="'url(' + borrowBook.bookImage + ')'"
+  ></div>
+
+  <div class="content-container">
+    <span class="borrow-book-name">{{ borrowBook.title }}</span>
+    <span [class.active]="!borrowBook.isReturned" *ngIf="!borrowBook.isReturned"
+      >Активно</span
+    >
+    <span [class.returned]="borrowBook.isReturned" *ngIf="borrowBook.isReturned"
+      >Повернуто</span
+    >
+
+    <ul class="borrow-book-dates">
+      <li class="borrow-book-date">
+        {{ formatDate(borrowBook.borrowDate, "Взято") }}
+      </li>
+      <li *ngIf="!borrowBook.isReturned" class="borrow-book-date">
+        {{ formatDate(borrowBook.returnDate, "Повернути до") }}
+      </li>
+      <li *ngIf="borrowBook.isReturned" class="borrow-book-date">
+        {{ formatDate(borrowBook.actualReturnDate, "Повернено") }}
+      </li>
+      <li class="borrow-book-time-left" *ngIf="!borrowBook.isReturned">
+        {{ getDaysLeft(borrowBook.returnDate) }}
+      </li>
+    </ul>
+
+    <div
+      *ngIf="!borrowBook.isReturned"
+      #contextMenu
+      class="material-symbols-outlined more-vert"
+      tabindex="2"
+      appDropdown
+    >
+      more_vert
+      <ul appDropdownContent class="book-buttons-content">
+        <li>
+          <a (click)="handleOpenContinueModal()">Продовжити термін</a>
+        </li>
+        <li *ngIf="isAdmin">
+          <a (click)="handleOpenReturnModel()">Повернути книгу</a>
+        </li>
+        <li><a (click)="navigateToBookDetails()">Детальніше</a></li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<app-continue-date
+  *ngIf="isModalContinueOpened"
+  [id]="borrowBook.borrowsBookId"
+  (onSearchClose)="handleContinueClose()"
+></app-continue-date>
+<app-return-book
+  *ngIf="isModalReturnOpened"
+  [id]="borrowBook.borrowsBookId"
+  (onSearchClose)="handleReturnClose()"
+></app-return-book>

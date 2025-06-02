@@ -1,0 +1,64 @@
+<div class="profile-avatar-background">
+  <div class="profile-background">
+    <div class="profile-avatar-nickname">
+      <div
+        class="profile-avatar"
+        [style.backgroundImage]="'url(' + userDTO.userImage + ')'"
+      ></div>
+      <div class="profile-user-info">
+        <p class="profile-nickname">{{ userDTO.nickname }}</p>
+
+        <p class="profile-membership">
+          <span
+            class="membership-icon"
+            [ngClass]="{
+              member: userDTO.isMember,
+              'not-member': !userDTO.isMember
+            }"
+          >
+            {{ userDTO.isMember ? "✔" : "✖" }}
+          </span>
+          {{ userDTO.isMember ? "Член бібліотеки" : "Не є членом бібліотеки" }}
+        </p>
+        <p class="profile-rating">
+          <span class="rating-label">Рейтинг: </span>
+          <span class="rating-value"
+            >{{ userDTO.rating | number : "1.1-2" }}/10</span
+          >
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <ul class="profile-navigation">
+    <li *ngIf="isAdmin || isOwnProfile">
+      <a class="prof-nav-a" routerLink="bookmarks" routerLinkActive="active"
+        >Закладинки</a
+      >
+    </li>
+    <li *ngIf="isAdmin || isOwnProfile">
+      <a class="prof-nav-a" routerLink="borrows" routerLinkActive="active"
+        >Позичені</a
+      >
+    </li>
+    <li *ngIf="isAdmin || isOwnProfile">
+      <a class="prof-nav-a" routerLink="reservations" routerLinkActive="active"
+        >Резервування</a
+      >
+    </li>
+    <li *ngIf="isAdmin">
+      <a
+        class="prof-nav-a"
+        *ngIf="isAdmin"
+        [routerLink]="['/profile/' + userDTO.id + '/rating-logs']"
+        routerLinkActive="active"
+        >Історія оцінок</a
+      >
+    </li>
+    <li *ngIf="isAdmin || isOwnProfile">
+      <a class="prof-nav-a" routerLink="settings" routerLinkActive="active"
+        >Налаштування</a
+      >
+    </li>
+  </ul>
+</div>

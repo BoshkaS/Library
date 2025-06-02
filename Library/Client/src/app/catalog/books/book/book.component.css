@@ -1,0 +1,41 @@
+.book-container {
+  width: 200px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-decoration: none;
+  color: black;
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+.book-container:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.book-image {
+  width: 100%;
+  aspect-ratio: 8/11;
+  background-position: center center;
+  background-size: cover;
+  border-radius: 10px;
+  flex-grow: 1;
+  transition: transform 0.3s ease-in-out;
+}
+
+.book-container:hover .book-image {
+  transform: scale(1.03);
+}
+
+.book-container span {
+  margin-top: 10px;
+  font-weight: 600;
+  text-align: center;
+  transition: color 0.3s ease-in-out;
+}
+
+.book-container:hover span {
+  color: #e19f3d;
+}

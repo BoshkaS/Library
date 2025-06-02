@@ -1,0 +1,22 @@
+<section class="container-of-bookmarks">
+  <div class="bookmarks-header">
+    <input
+      type="text"
+      placeholder="Пошук за назвою..."
+      [(ngModel)]="searchQuery"
+      (input)="onSearchChange()"
+      class="search-input"
+    />
+  </div>
+
+  <div *ngIf="filteredBooks.length === 0" class="no-results">
+    Нічого не знайдено.
+  </div>
+
+  <ul class="bookmarks" *ngIf="filteredBooks.length > 0">
+    <app-novelties-item
+      *ngFor="let noveltie of filteredBooks"
+      [noveltie]="noveltie"
+    ></app-novelties-item>
+  </ul>
+</section>

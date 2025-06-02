@@ -1,0 +1,7 @@
+export class CreateReservationDTO {
+  bookId: number;
+
+  constructor(bookId: number) {
+    this.bookId = bookId;
+  }
+}

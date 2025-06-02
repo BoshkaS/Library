@@ -1,0 +1,49 @@
+.noveltie-book-container {
+  width: 170px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-decoration: none;
+  color: black;
+  margin: 0 auto;
+  border-radius: 10px;
+  padding: 10px;
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.noveltie-book-container:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.noveltie-book-image {
+  width: 100%;
+  aspect-ratio: 8/11;
+  background-position: center center;
+  background-size: cover;
+  border-radius: 10px;
+  flex-grow: 1;
+  transition: transform 0.3s ease-in-out;
+}
+
+.noveltie-book-container:hover .noveltie-book-image {
+  transform: scale(1.03);
+}
+
+.noveltie-book-container span {
+  margin-top: 10px;
+  font-weight: 600;
+  text-align: center;
+  transition: color 0.3s ease-in-out;
+}
+
+.noveltie-book-container:hover span {
+  color: #e19f3d;
+}
+
+/* Адаптація під мобільні пристрої */
+@media (max-width: 768px) {
+  .noveltie-book-container {
+    width: 140px;
+  }
+}

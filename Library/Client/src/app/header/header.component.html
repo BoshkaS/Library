@@ -1,0 +1,48 @@
+<header class="header">
+  <div class="header-logo-container">
+    <img class="header-logo" src="../../assets/images/icon_L.png" alt="logo" />
+    <a class="header-library">Бібліотека</a>
+  </div>
+  <nav class="header-navigation">
+    <ul>
+      <li><a class="header-main" routerLink="main">Головна</a></li>
+      <li><a class="header-catalog" routerLink="catalog">Каталог</a></li>
+      <li *ngIf="isAdmin">
+        <a class="header-admin" routerLink="admin">Адмін панель</a>
+      </li>
+    </ul>
+  </nav>
+  <div class="header-navigation-right">
+    <ul>
+      <li>
+        <i class="material-symbols-outlined" (click)="handleOpenSearchModal()"
+          >search</i
+        >
+      </li>
+      <li *ngIf="!(accountService.currentUser$ | async)">
+        <button class="login-button" (click)="handleOpenModal()">Увійти</button>
+      </li>
+      <li *ngIf="accountService.currentUser$ | async">
+        <div
+          class="header-avatar"
+          tabindex="2"
+          appDropdown
+          [style.backgroundImage]="'url(' + userDTO.userImage + ')'"
+        >
+          <ul appDropdownContent class="header-avatar-content">
+            <li><a (click)="navigateToBookmarks()">Закладинки</a></li>
+            <li><a (click)="navigateToBorrows()">Позичені</a></li>
+            <li><a (click)="navigateToReservations()">Резервування</a></li>
+            <li><a (click)="navigateToSettings()">Налаштування</a></li>
+            <li><a class="header-quit" (click)="logout()">Вийти</a></li>
+          </ul>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <app-sign-in *ngIf="isModalOpened" (onClose)="handleClose()"></app-sign-in>
+  <app-search
+    *ngIf="isModalSearchOpened"
+    (onSearchClose)="handleSearchClose()"
+  ></app-search>
+</header>

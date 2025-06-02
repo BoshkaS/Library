@@ -1,0 +1,55 @@
+<div class="backdrop" (click)="closeHandler()">
+  <div class="modal" (click)="handleStopPropagation($event)">
+    <form #postForm="ngForm" (ngSubmit)="onSearch()">
+      <header class="form-header">
+        <h2>Пошук</h2>
+      </header>
+
+      <div class="form-body">
+        <input
+          name="content"
+          [(ngModel)]="searchString"
+          class="input-search"
+          type="text"
+          placeholder="Пошук"
+          required
+          minlength="3"
+          #textInput="ngModel"
+        />
+
+        <button class="submit-button" type="submit">Пошук</button>
+      </div>
+    </form>
+
+    <!-- Loading Spinner -->
+    <div *ngIf="isLoading" class="loading text-center mt-4">
+      <div class="spinner-border text-primary" role="status">
+        <span class="visually-hidden">Завантаження...</span>
+      </div>
+      <p class="text-muted mt-2">Завантаження результатів...</p>
+    </div>
+
+    <!-- No results found -->
+    <div
+      *ngIf="!isLoading && hasSearched && booksDTO.length === 0"
+      class="text-center mt-4"
+    >
+      <p>
+        Книг не знайдено за запитом <strong>{{ searchString }}</strong>
+      </p>
+      <p class="text-muted">Спробуйте інший запит або перевірте правопис.</p>
+    </div>
+
+    <!-- Results -->
+    <ul
+      class="list-of-searchong-books"
+      *ngIf="!isLoading && booksDTO.length > 0"
+    >
+      <app-search-book-item
+        *ngFor="let book of booksDTO"
+        [searchBook]="book"
+        (click)="closeHandler()"
+      ></app-search-book-item>
+    </ul>
+  </div>
+</div>

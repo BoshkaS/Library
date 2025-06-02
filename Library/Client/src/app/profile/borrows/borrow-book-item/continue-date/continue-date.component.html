@@ -1,0 +1,14 @@
+<div class="backdrop" (click)="closeHandler()">
+  <div class="modal" (click)="handleStopPropagation($event)">
+    <header class="form-header"><h2>Продовження терміну</h2></header>
+    <div class="form-body">
+      <span class="verify-deletion"
+        >Ви впевнені, що хочете продовжити термін повернення книги?</span
+      >
+      <div class="actions">
+        <button class="submit-button" (click)="continueDate()">Так</button>
+        <button class="cancel-button" (click)="closeHandler()">Ні</button>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,25 @@
+<h2>Панель адміна</h2>
+<div class="tab-panel">
+  <button class="create" (click)="navigateToAuthor()">
+    Додати нового автора
+  </button>
+  <button class="create" (click)="navigateToHouse()">
+    Додати нове видавництво
+  </button>
+  <button class="create" (click)="navigateToBook()">Додати нову книгу</button>
+  <button class="create" (click)="navigateToUsers()">Усі користувачі</button>
+  <button class="create" (click)="navigateToRequestDate()">
+    Запити на продовження дати
+  </button>
+  <!-- <button class="create" (click)="navigateToCreateBorrowing()">
+    Запити на продовження дати
+  </button> -->
+</div>
+<app-create-author
+  *ngIf="isModalAuthorOpened"
+  (onClose)="handleAuthorClose()"
+></app-create-author>
+<app-create-publishing-house
+  *ngIf="isModalHouseOpened"
+  (onClose)="handleHouseClose()"
+></app-create-publishing-house>

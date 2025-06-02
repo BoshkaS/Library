@@ -1,0 +1,65 @@
+.search-book {
+  display: flex;
+  align-items: center;
+  background-color: #f8f8f8;
+  border-radius: 10px;
+  padding: 8px;
+  text-decoration: none;
+  color: black;
+  width: 100%;
+  max-width: 450px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.search-book:hover {
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.15);
+  transform: translateY(-3px);
+}
+
+.search-book-image {
+  width: 80px;
+  height: 110px;
+  background-position: center;
+  background-size: cover;
+  border-radius: 8px 0 0 8px;
+  flex-shrink: 0;
+}
+
+.content-container {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  padding-left: 10px;
+}
+
+.search-book-name {
+  font-size: 18px;
+  font-weight: 600;
+  color: #333;
+  line-height: 1.2;
+}
+
+.search-book-author {
+  font-size: 14px;
+  color: #7a7a7a;
+}
+
+@media (max-width: 500px) {
+  .search-book {
+    max-width: 100%;
+    padding: 6px;
+  }
+
+  .search-book-image {
+    width: 70px;
+    height: 95px;
+  }
+
+  .search-book-name {
+    font-size: 16px;
+  }
+
+  .search-book-author {
+    font-size: 13px;
+  }
+}

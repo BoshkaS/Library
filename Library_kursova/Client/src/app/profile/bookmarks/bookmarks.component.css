@@ -1,8 +1,0 @@
-.bookmarks {
-    display: flex;
-    flex-wrap: wrap;
-    list-style: none;
-    gap: 35px;
-    margin: 0;
-    padding-top: 30px;
-}

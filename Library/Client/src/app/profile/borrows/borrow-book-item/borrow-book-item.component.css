@@ -1,0 +1,144 @@
+.borrow-book {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  background-color: #f9f9f9;
+  border-radius: 10px;
+  text-decoration: none;
+  color: black;
+  margin: 10px 0;
+  padding: 12px;
+  transition: 0.3s ease-in-out;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  position: relative;
+}
+
+.borrow-book:hover {
+  transform: scale(1.02);
+}
+
+.borrow-book-image {
+  height: 180px;
+  width: 130px;
+  background-position: center center;
+  background-size: cover;
+  border-radius: 7px;
+}
+
+.borrow-book.returned {
+  background-color: #ececec;
+  opacity: 0.5;
+  padding: 12px;
+}
+
+.borrow-book.not-returned {
+  background-color: white;
+  border-left: 4px solid #e19f3d;
+}
+
+.content-container {
+  display: flex;
+  flex-direction: column;
+  padding-left: 15px;
+  justify-content: center;
+  gap: 10px;
+}
+
+.active {
+  background-color: #e19f3d;
+  text-align: center;
+  border-radius: 10px;
+  padding: 2px 12px;
+}
+
+.returned {
+  background-color: #b7b6b6;
+  border-radius: 10px;
+  padding: 2px 12px;
+}
+
+.borrow-book-name {
+  font-size: 16px;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.borrow-book-dates {
+  list-style: none;
+  padding: 0;
+  font-size: 14px;
+  color: #666;
+}
+
+.borrow-book-date {
+  padding: 3px 0;
+  font-style: italic;
+}
+
+.borrow-book-time-left {
+  font-size: 14px;
+  font-weight: bold;
+  color: #d9534f;
+}
+
+.more-vert {
+  position: absolute;
+  right: 15px;
+  top: 15px;
+  cursor: pointer;
+  font-size: 24px;
+  color: #666;
+  transition: color 0.3s;
+}
+
+.more-vert:hover {
+  color: #000;
+}
+
+.more-vert {
+  position: absolute;
+  right: 15px;
+  top: 15px;
+  cursor: pointer;
+  font-size: 24px;
+  color: #666;
+  transition: color 0.3s;
+}
+
+.more-vert:hover {
+  color: #000;
+}
+
+.book-buttons-content {
+  position: absolute;
+  flex-direction: column;
+  gap: 5px;
+  padding: 10px;
+  width: 160px;
+  left: 100%;
+  transform: translateX(-100%);
+  box-shadow: 0px 5px 5px 0px rgba(0.4, 0, 0, 0.4);
+  overflow: hidden;
+  list-style: none;
+  border-radius: 7px;
+  background-color: white;
+  z-index: 100;
+}
+
+.book-buttons-content a {
+  border-radius: 7px;
+  display: block;
+  color: #000000;
+  text-decoration: none;
+  padding: 5px;
+  font-size: 14px;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.book-buttons-content a:hover {
+  background-color: #f0f0f0;
+}
+
+.more-vert:focus + .book-buttons-content {
+  display: flex;
+}

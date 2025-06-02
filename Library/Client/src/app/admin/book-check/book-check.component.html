@@ -1,0 +1,16 @@
+<form #postForm="ngForm" (ngSubmit)="checkBook(postForm)" class="form">
+  <h2>Перевірити книгу</h2>
+  <div class="form-body">
+    <label for="isbn">ISBN книги</label>
+    <input
+      type="text"
+      class="form-control"
+      id="isbn"
+      required
+      ngModel
+      name="isbn"
+      placeholder="Введіть ISBN"
+    />
+  </div>
+  <button class="submit" type="submit">Перевірити</button>
+</form>

@@ -1,0 +1,165 @@
+<form #postForm="ngForm" (ngSubmit)="onCreateBook(postForm.value)" class="form">
+  <h2>Додати книгу</h2>
+  <div class="books-in-columns">
+    <div class="books-in-rows">
+      <div class="form-body">
+        <label for="title">Назва книги</label>
+        <input
+          type="text"
+          class="form-control"
+          id="title"
+          required
+          ngModel
+          name="title"
+          placeholder="Введіть назву"
+        />
+      </div>
+      <div class="form-body">
+        <label for="title">Псевдонім автора</label>
+        <app-selector
+          *ngIf="authors.length > 0"
+          [placeholder]="'Оберіть автора'"
+          active="selected-option"
+          [extends]="false"
+          [values]="selectedAuthor ? [selectedAuthor] : []"
+          (onSelect)="selectHandlerAuthor($event)"
+        >
+          <ul #selectorOptions>
+            <li *ngFor="let option of authors" [attr.optionValue]="option">
+              {{ option }}
+            </li>
+          </ul>
+        </app-selector>
+      </div>
+      <div class="form-body">
+        <label for="yearOfPublication">Рік видання</label>
+        <input
+          type="text"
+          class="form-control"
+          id="yearOfPublication"
+          required
+          ngModel
+          name="yearOfPublication"
+          placeholder="Введіть рік видання"
+        />
+      </div>
+    </div>
+    <div class="descrip-and-photo">
+      <div class="form-body">
+        <label for="description">Опис книги</label>
+        <textarea
+          type="textarea"
+          class="form-area"
+          id="description"
+          required
+          ngModel
+          name="description"
+          placeholder="Введіть опис"
+        ></textarea>
+      </div>
+      <div class="form-body">
+        <label for="isbn">ISBN</label>
+        <input
+          type="text"
+          class="form-control"
+          id="isbn"
+          required
+          ngModel
+          name="isbn"
+          placeholder="Введіть isbn"
+        />
+      </div>
+
+      <div class="upload-photo-div">
+        <div class="form-body">
+          <label for="description">Обкладинка книги</label>
+          <input
+            type="file"
+            class="file-input"
+            (change)="onChange($event)"
+            #fileUpload
+          />
+          <div class="after-selected-photo">
+            <button class="cancel" (click)="fileUpload.click()">
+              Завантажити фото
+            </button>
+            <div *ngIf="file" class="file-name">{{ file.name }}</div>
+          </div>
+          <div *ngIf="file">
+            <button class="submit" (click)="onUpload()">
+              Змінити фотографію
+            </button>
+            <section [ngSwitch]="status">
+              <p *ngSwitchCase="'uploading'">⏳ Завантаження...</p>
+              <p *ngSwitchCase="'success'">✅ Готово!</p>
+              <p *ngSwitchCase="'fail'">❌ Помилка!</p>
+              <p *ngSwitchDefault>😶 Очікування...</p>
+            </section>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="books-in-rows">
+      <div class="form-body">
+        <label for="language">Мова книги</label>
+        <app-selector
+          *ngIf="languages.length > 0"
+          [placeholder]="'Оберіть мову'"
+          active="selected-option"
+          [extends]="false"
+          [values]="selectedLang ? [selectedLang] : []"
+          (onSelect)="selectHandlerLang($event)"
+        >
+          <ul #selectorOptions>
+            <li *ngFor="let option of languages" [attr.optionValue]="option">
+              {{ option }}
+            </li>
+          </ul>
+        </app-selector>
+      </div>
+      <div class="form-body">
+        <label for="category">Категорія книги</label>
+        <app-selector
+          *ngIf="categories.length > 0"
+          [placeholder]="'Оберіть категорію'"
+          active="selected-option"
+          [extends]="false"
+          [values]="selectedCategory ? [selectedCategory] : []"
+          (onSelect)="selectHandlerCategory($event)"
+        >
+          <ul #selectorOptions>
+            <li *ngFor="let option of categories" [attr.optionValue]="option">
+              {{ option }}
+            </li>
+          </ul>
+        </app-selector>
+      </div>
+      <div class="form-body">
+        <label for="publishingHouse">Видавництво книги</label>
+        <app-selector
+          *ngIf="publishingHouses.length > 0"
+          [placeholder]="'Оберіть видавництво'"
+          active="selected-option"
+          [extends]="false"
+          [values]="selectedHouse ? [selectedHouse] : []"
+          (onSelect)="selectHandlerHouse($event)"
+        >
+          <ul #selectorOptions>
+            <li
+              *ngFor="let option of publishingHouses"
+              [attr.optionValue]="option"
+            >
+              {{ option }}
+            </li>
+          </ul>
+        </app-selector>
+      </div>
+    </div>
+  </div>
+  <div class="button-group">
+    <button class="cancel" type="button" (click)="closeHandler()">Назад</button>
+    <button class="submit" type="submit" [disabled]="!postForm.valid">
+      Створити
+    </button>
+  </div>
+</form>

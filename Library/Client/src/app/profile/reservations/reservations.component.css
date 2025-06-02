@@ -1,0 +1,22 @@
+.container-of-reserved {
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.reserved {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* exactly 3 columns */
+  gap: 20px;
+}
+
+.no-results {
+  text-align: center;
+  font-style: italic;
+  color: #777;
+  margin-top: 20px;
+  font-size: 18px;
+}

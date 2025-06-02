@@ -1,0 +1,38 @@
+<div class="backdrop" (click)="closeHandler()">
+  <div class="modal" (click)="handleStopPropagation($event)">
+    <header class="form-header"><h2>Видалення книги</h2></header>
+    <div class="form-body" *ngIf="!isCopyListVisible">
+      <span class="verify-deletion">Що саме ви хочете видалити?</span>
+      <div class="actions">
+        <button class="submit-button" (click)="deleteBook()">
+          Всю книгу і копії
+        </button>
+        <button class="cancel-button" (click)="showCopyList()">
+          Тільки копії
+        </button>
+        <button class="cancel-button" (click)="closeHandler()">
+          Скасувати
+        </button>
+      </div>
+    </div>
+
+    <div class="form-body" *ngIf="isCopyListVisible">
+      <p>Список копій книги:</p>
+      <ul *ngIf="copies.length > 0; else noCopies">
+        <li *ngFor="let copy of copies">
+          Копія ID: {{ copy.bookCopyId }}
+          <button
+            class="submit-button"
+            (click)="deleteBookCopy(copy.bookCopyId)"
+          >
+            Видалити
+          </button>
+        </li>
+      </ul>
+      <ng-template #noCopies>
+        <p>Немає доступних копій.</p>
+      </ng-template>
+      <button class="cancel-button" (click)="closeHandler()">Закрити</button>
+    </div>
+  </div>
+</div>

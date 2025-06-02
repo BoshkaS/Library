@@ -1,0 +1,43 @@
+.container-of-borrows {
+  display: flex;
+  justify-content: flex-end; /* Push children to the right */
+  align-items: center;
+  margin-bottom: 15px; /* optional spacing below button */
+}
+
+.borrow-btn {
+  margin-top: 10px;
+  padding: 6px 12px;
+  background-color: #e19f3d;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+  color: #2c2c2c;
+  transition: background-color 0.3s;
+}
+
+.borrow-btn:hover {
+  background-color: #e0aa2d;
+}
+
+/* Keep your existing .borrows grid styles */
+.borrows {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  gap: 30px;
+}
+
+.btn-wrapper {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 10px;
+}
+
+.no-results {
+  text-align: center;
+  font-style: italic;
+  color: #777;
+  margin-top: 20px;
+  font-size: 18px;
+}
