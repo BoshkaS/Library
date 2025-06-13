@@ -17,6 +17,7 @@ namespace Library.Controllers
             _libraryContext = context;
         }
 
+        [AllowAnonymous]
         [HttpGet]
         public async Task<ActionResult<IEnumerable<PublishingHouse>>> GetPublishingHouses()
         {
