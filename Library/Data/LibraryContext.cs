@@ -1,4 +1,5 @@
-﻿using Library.Annotation;
+﻿using System.Reflection.Emit;
+using Library.Annotation;
 using Library.Entities;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
@@ -42,6 +43,8 @@ namespace Library.Data
             }
             base.OnModelCreating(builder);
             builder.Entity<AppRole>().HasMany(u => u.UserRoles).WithOne(u => u.Role).HasForeignKey(u => u.RoleId).IsRequired();
+
+            builder.Seed();
         }
 
         public DbSet<Author> Author { get; set; }
