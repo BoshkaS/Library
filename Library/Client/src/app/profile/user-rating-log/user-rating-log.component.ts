@@ -12,6 +12,7 @@ export class UserRatingLogComponent implements OnInit {
   ratingLogs: UserRatingLog[] = [];
   loading = true;
   userId!: number;
+  isLoading = true;
 
   constructor(
     private route: ActivatedRoute,
@@ -22,11 +23,16 @@ export class UserRatingLogComponent implements OnInit {
     this.userId = +this.route.parent.snapshot.paramMap.get('id')!; // витягуємо :id з маршруту
     console.log(this.userId);
     if (this.userId) {
-      this.ratingLogService.getLogsByUser(this.userId).subscribe({
-        next: (logs) => (this.ratingLogs = logs),
-        error: (err) => console.error(err),
-        complete: () => (this.loading = false),
-      });
+      setTimeout(() => {
+        this.ratingLogService.getLogsByUser(this.userId).subscribe({
+          next: (logs) => {
+            this.ratingLogs = logs;
+            this.isLoading = false;
+          },
+          error: (err) => console.error(err),
+          complete: () => (this.loading = false),
+        });
+      }, 500);
     }
   }
 }

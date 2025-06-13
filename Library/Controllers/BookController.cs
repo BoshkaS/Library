@@ -28,7 +28,7 @@ namespace Library.Controllers
         {
             var query = _libraryContext.Book
                 .Include(b => b.BookAuthors)
-              .ThenInclude(ab => ab.Author) // Include the Author entity through AuthorBook
+              .ThenInclude(ab => ab.Author)
             .AsQueryable();
 
             if (bookParams.Type == "like")
@@ -59,7 +59,7 @@ namespace Library.Controllers
         {
             var query = _libraryContext.Book
                 .Include(b => b.BookAuthors)
-              .ThenInclude(ab => ab.Author) // Include the Author entity through AuthorBook
+              .ThenInclude(ab => ab.Author)
             .AsQueryable();
 
             if (filterDTO.Categories != null && filterDTO.Categories.Any())
@@ -133,7 +133,6 @@ namespace Library.Controllers
             var reservedCopies = book.Copies.Count(c => c.Reservations.Any(r => r.IsActive));
             var availableCopies = totalCopies - borrowedCopies - reservedCopies;
 
-            // Determine status
             string status;
             if (availableCopies > 0)
                 status = "Available";
@@ -142,7 +141,6 @@ namespace Library.Controllers
             else
                 status = "Borrowed";
 
-            // Find nearest active reservation expiration
             var nearestReservation = book.Copies
                 .SelectMany(c => c.Reservations)
                 .Where(r => r.IsActive)
@@ -179,7 +177,7 @@ namespace Library.Controllers
         {
             var bookDTOs = await _libraryContext.Book
                 .Include(b => b.BookAuthors)
-              .ThenInclude(ab => ab.Author) // Include the Author entity through AuthorBook
+              .ThenInclude(ab => ab.Author)
             .Select(b => new BookDTO
             {
                 Book = b,
@@ -221,7 +219,7 @@ namespace Library.Controllers
         {
             var bookDTOs = await _libraryContext.Book
                 .Include(b => b.BookAuthors)
-              .ThenInclude(ab => ab.Author) // Include the Author entity through AuthorBook
+              .ThenInclude(ab => ab.Author)
             .Select(b => new BookDTO
             {
                 Book = b,
@@ -367,7 +365,6 @@ namespace Library.Controllers
         {
             var now = DateTime.UtcNow;
 
-            // Get all book copies for the book
             var bookCopies = await _libraryContext.BookCopy
                 .Where(bc => bc.BookId == bookId)
                 .ToListAsync();
@@ -396,7 +393,6 @@ namespace Library.Controllers
                 }
                 else
                 {
-                    // Collect soonest end date (return or reservation)
                     var returnDate = await _libraryContext.BorrowsBook
                         .Where(bb => bb.BookCopyId == copy.BookCopyId && !bb.IsReturned)
                         .Select(bb => (DateTime?)bb.ReturnDate.ToDateTime(TimeOnly.MinValue))
@@ -551,8 +547,7 @@ namespace Library.Controllers
             }
             else
             {
-                // Handle the case where the author is not found
-                return -1; // Or throw an exception, return null, etc.
+                return -1;
             }
         }
 
@@ -567,8 +562,7 @@ namespace Library.Controllers
             }
             else
             {
-                // Handle the case where the author is not found
-                return -1; // Or throw an exception, return null, etc.
+                return -1;
             }
         }
 
@@ -583,8 +577,7 @@ namespace Library.Controllers
             }
             else
             {
-                // Handle the case where the author is not found
-                return -1; // Or throw an exception, return null, etc.
+                return -1;
             }
         }
 
@@ -599,8 +592,7 @@ namespace Library.Controllers
             }
             else
             {
-                // Handle the case where the author is not found
-                return -1; // Or throw an exception, return null, etc.
+                return -1;
             }
         }
 
@@ -615,8 +607,7 @@ namespace Library.Controllers
             }
             else
             {
-                // Handle the case where the author is not found
-                return ""; // Or throw an exception, return null, etc.
+                return "";
             }
         }
 
@@ -631,8 +622,7 @@ namespace Library.Controllers
             }
             else
             {
-                // Handle the case where the author is not found
-                return ""; // Or throw an exception, return null, etc.
+                return "";
             }
         }
 
@@ -644,7 +634,7 @@ namespace Library.Controllers
                .Include(b => b.BookAuthors)
                .ThenInclude(ab => ab.Author)
                .Include(b => b.PublishingHouse)
-               .Where(b => b.Title == bookDTO.Title) // Пошук за назвою
+               .Where(b => b.Title == bookDTO.Title)
                .AsQueryable();
 
             if (!string.IsNullOrEmpty(bookDTO.PublishingHouse))

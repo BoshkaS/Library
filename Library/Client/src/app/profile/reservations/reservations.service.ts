@@ -6,9 +6,9 @@ import { ReservationDTO } from '../../dto/reservationDTO.model';
 export class ReservationService {
   constructor(private http: HttpClient) {}
 
-  getReservationBook() {
+  getReservationBook(userId: number) {
     return this.http.get<ReservationDTO[]>(
-      'https://localhost:5001/api/reservation/all-reservations'
+      `https://localhost:5001/api/reservation/all-reservations/${userId}`
     );
   }
 

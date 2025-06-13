@@ -1,4 +1,14 @@
-<div *ngIf="this.bookDetails != null" class="book-container">
+<div *ngIf="isLoading" class="d-flex flex-column align-items-center mt-5">
+  <div
+    class="spinner-border text-secondary"
+    role="status"
+    style="width: 3rem; height: 3rem"
+  >
+    <span class="visually-hidden">Loading...</span>
+  </div>
+  <p class="mt-2 text-muted">Завантаження книги...</p>
+</div>
+<div *ngIf="!isLoading" class="book-container">
   <ul class="book-image-buttons">
     <li>
       <img class="book-image" [src]="bookDetails.book.bookImage" alt="" />

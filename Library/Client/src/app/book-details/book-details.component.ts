@@ -38,6 +38,7 @@ export class BookDetailsComponent implements OnInit, OnChanges {
   isAdmin = false;
   isModalDeleteOpened = false;
   isModalReservOpened = false;
+  isLoading = true;
 
   private subscriptions: Subscription[] = [];
 
@@ -65,6 +66,7 @@ export class BookDetailsComponent implements OnInit, OnChanges {
   }
 
   ngOnInit(): void {
+    this.isLoading = true;
     this.id = this.route.snapshot.params['id'];
 
     this.subscriptions.push(
@@ -98,6 +100,7 @@ export class BookDetailsComponent implements OnInit, OnChanges {
         .subscribe((similarBooks) => {
           this.similarBooks = similarBooks;
           console.log(this.similarBooks);
+          this.isLoading = false;
         })
     );
   }
@@ -188,7 +191,6 @@ export class BookDetailsComponent implements OnInit, OnChanges {
   }
 
   handleOpenDeleteModal() {
-    console.log('Delete modal should open');
     this.isModalDeleteOpened = true;
   }
 
@@ -197,7 +199,6 @@ export class BookDetailsComponent implements OnInit, OnChanges {
   }
 
   handleOpenReservModal() {
-    console.log('Delete modal should open');
     this.isModalReservOpened = true;
   }
 

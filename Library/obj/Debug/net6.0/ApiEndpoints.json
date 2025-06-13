@@ -828,11 +828,17 @@
   {
     "ContainingType": "Library.Controllers.BookmarkBookController",
     "Method": "GetBookmarkBooks",
-    "RelativePath": "api/BookmarkBook/bookmarks",
+    "RelativePath": "api/BookmarkBook/bookmarks/{userId}",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
-    "Parameters": [],
+    "Parameters": [
+      {
+        "Name": "userId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
     "ReturnTypes": [
       {
         "Type": "System.Collections.Generic.IEnumerable\u00601[[Library.DTO.BookDTO, Library, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
@@ -974,11 +980,17 @@
   {
     "ContainingType": "Library.Controllers.BorrowsBookController",
     "Method": "GetBorrowsBooks",
-    "RelativePath": "api/BorrowsBook/all-borrows",
+    "RelativePath": "api/BorrowsBook/all-borrows/{userId}",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
-    "Parameters": [],
+    "Parameters": [
+      {
+        "Name": "userId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
     "ReturnTypes": [
       {
         "Type": "System.Collections.Generic.IEnumerable\u00601[[Library.DTO.BorrowedBookResponseDTO, Library, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
@@ -1717,11 +1729,17 @@
   {
     "ContainingType": "Library.Controllers.ReservationController",
     "Method": "GetReservations",
-    "RelativePath": "api/Reservation/all-reservations",
+    "RelativePath": "api/Reservation/all-reservations/{userId}",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
-    "Parameters": [],
+    "Parameters": [
+      {
+        "Name": "userId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
     "ReturnTypes": [
       {
         "Type": "System.Collections.Generic.IEnumerable\u00601[[Library.DTO.ReservationDTO, Library, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",

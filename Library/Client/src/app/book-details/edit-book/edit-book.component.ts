@@ -199,6 +199,6 @@ export class EditBookComponent implements OnInit {
   }
 
   closeHandler() {
-    this.router.navigate(['/books']);
+    this.router.navigate([`/book/${this.bookId}`]);
   }
 }

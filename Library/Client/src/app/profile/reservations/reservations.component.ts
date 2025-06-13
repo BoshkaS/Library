@@ -16,6 +16,7 @@ export class ReservationsComponent implements OnInit {
   reservedBooks: ReservationDTO[] = [];
   userDTO: UserDTO | null = null;
   currentUser: UserDTO | null = null;
+  isLoading = true;
 
   id: number;
 
@@ -32,14 +33,19 @@ export class ReservationsComponent implements OnInit {
         this.currentUser = user;
       },
     });
-    this.route.parent?.params.subscribe((params) => {
-      this.id = +params['id'];
-      this.profileService.getUser(this.id).subscribe((user) => {
-        this.userDTO = user;
-        this.reservationService.getReservationBook().subscribe((books) => {
-          this.reservedBooks = books;
+    setTimeout(() => {
+      this.route.parent?.params.subscribe((params) => {
+        this.id = +params['id'];
+        this.profileService.getUser(this.id).subscribe((user) => {
+          this.userDTO = user;
+          this.reservationService
+            .getReservationBook(this.userDTO.id)
+            .subscribe((books) => {
+              this.reservedBooks = books;
+              this.isLoading = false;
+            });
         });
       });
-    });
+    }, 500);
   }
 }

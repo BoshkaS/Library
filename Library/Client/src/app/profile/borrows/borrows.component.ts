@@ -17,6 +17,7 @@ export class BorrowsComponent implements OnInit {
   userDTO: UserDTO | null = null;
   currentUser: UserDTO | null = null;
   isAdmin = false;
+  isLoading = true;
 
   id: number;
 
@@ -37,22 +38,27 @@ export class BorrowsComponent implements OnInit {
         this.currentUser = user;
       },
     });
-    this.isAdmin = this.currentUser?.roles.includes('admin') ?? false;
-    this.route.parent?.params.subscribe((params) => {
-      this.id = +params['id'];
-      this.profileService.getUser(this.id).subscribe((user) => {
-        this.userDTO = user;
-        this.borrowsService.getBorrowsBook().subscribe((books) => {
-          this.borrowsBooks = books;
-          this.activeBooks = this.borrowsBooks.filter(
-            (book) => !book.isReturned
-          );
-          this.returnedBooks = this.borrowsBooks.filter(
-            (book) => book.isReturned
-          );
+    setTimeout(() => {
+      this.isAdmin = this.currentUser?.roles.includes('admin') ?? false;
+      this.route.parent?.params.subscribe((params) => {
+        this.id = +params['id'];
+        this.profileService.getUser(this.id).subscribe((user) => {
+          this.userDTO = user;
+          this.borrowsService
+            .getBorrowsBook(this.userDTO.id)
+            .subscribe((books) => {
+              this.borrowsBooks = books;
+              this.activeBooks = this.borrowsBooks.filter(
+                (book) => !book.isReturned
+              );
+              this.returnedBooks = this.borrowsBooks.filter(
+                (book) => book.isReturned
+              );
+              this.isLoading = false;
+            });
         });
       });
-    });
+    }, 500);
   }
 
   goToCreateBorrowing(): void {

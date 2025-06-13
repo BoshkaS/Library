@@ -27,10 +27,10 @@ namespace Library.Controllers
             this.userContextService = userContextService;
         }
 
-        [HttpGet("all-borrows")]
-        public async Task<ActionResult<IEnumerable<BorrowedBookResponseDTO>>> GetBorrowsBooks()
+        [HttpGet("all-borrows/{userId}")]
+        public async Task<ActionResult<IEnumerable<BorrowedBookResponseDTO>>> GetBorrowsBooks(int userId)
         {
-            var userId = this.userContextService.GetCurrentUserId();
+            //var userId = this.userContextService.GetCurrentUserId();
 
             var borrowedBooks = await libraryContext.BorrowsBook
                 .Where(bb => bb.UserId == userId)

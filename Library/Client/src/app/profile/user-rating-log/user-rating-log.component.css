@@ -28,3 +28,11 @@
 .negative {
   color: red;
 }
+
+.no-results {
+  text-align: center;
+  font-style: italic;
+  color: #777;
+  margin-top: 20px;
+  font-size: 18px;
+}

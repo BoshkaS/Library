@@ -36,10 +36,10 @@ namespace Library.Controllers
         }
 
         [Authorize]
-        [HttpGet("bookmarks")]
-        public async Task<ActionResult<IEnumerable<BookDTO>>> GetBookmarkBooks()
+        [HttpGet("bookmarks/{userId}")]
+        public async Task<ActionResult<IEnumerable<BookDTO>>> GetBookmarkBooks(int userId)
         {
-            var userId = this.userContextService.GetCurrentUserId();
+            //var userId = this.userContextService.GetCurrentUserId();
             var bookmarkBooks = await _libraryContext.BookmarkBook
                 .Where(x => x.UserId == userId)
                 .Include(x => x.Book)

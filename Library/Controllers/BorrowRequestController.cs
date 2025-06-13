@@ -85,7 +85,7 @@ namespace Library.Controllers
                 return BadRequest("Ця книга вже повернута, її неможливо повернути.");
 
             if (borrow.ReturnDate < today || borrow.ReturnDate > today.AddDays(2))
-                return BadRequest("Ви можете повернути книгу тільки в останніх два дні.");
+                return BadRequest("Ви можете продовжити термін дії тільки в останніх два дні.");
 
             var existingRequest = await _libraryContext.BorrowRequest
                 .FirstOrDefaultAsync(r => r.BorrowsBookId == borrowId && r.Approved == null);

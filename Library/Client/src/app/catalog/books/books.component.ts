@@ -85,8 +85,6 @@ export class BooksComponent implements OnInit {
   pageChanged(event: any) {
     if (this.bookParams?.pageNumber !== event.page) {
       this.bookParams.pageNumber = event.page;
-      console.log(this.pagination);
-      console.log(this.bookParams);
       this.loadBooks();
     }
   }

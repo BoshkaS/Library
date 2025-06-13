@@ -18,6 +18,7 @@ export class BookmarksComponent implements OnInit {
   searchQuery: string = '';
   userDTO: UserDTO | null = null;
   currentUser: UserDTO | null = null;
+  isLoading = true;
 
   id: number;
 
@@ -35,16 +36,21 @@ export class BookmarksComponent implements OnInit {
       },
     });
 
-    this.route.parent?.params.subscribe((params) => {
-      this.id = +params['id'];
-      this.profileService.getUser(this.id).subscribe((user) => {
-        this.userDTO = user;
-        this.bookmarksService.getBookmarksBook().subscribe((books) => {
-          this.bookmarksBook = books;
-          this.filteredBooks = books; // initialize filtered
+    setTimeout(() => {
+      this.route.parent?.params.subscribe((params) => {
+        this.id = +params['id'];
+        this.profileService.getUser(this.id).subscribe((user) => {
+          this.userDTO = user;
+          this.bookmarksService
+            .getBookmarksBook(this.userDTO.id)
+            .subscribe((books) => {
+              this.bookmarksBook = books;
+              this.filteredBooks = books; // initialize filtered
+              this.isLoading = false;
+            });
         });
       });
-    });
+    }, 500);
   }
 
   onSearchChange(): void {

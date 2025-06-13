@@ -1,30 +1,30 @@
 <div class="user-container">
-    <h2>Користувачі</h2>
-    <input
-      type="text"
-      placeholder="Пошук за email"
-      [(ngModel)]="searchEmail"
-      (input)="onSearchChange()"
-      class="search-input"
-    />
-  
-    <div class="user-list">
-      <a
-        class="user-card"
-        *ngFor="let user of filteredUsers"
-        [routerLink]="['/profile', user.id]"
-      >
-        <div
-          class="user-image"
-          [style.backgroundImage]="'url(' + user.userImage + ')'"
-        ></div>
-        <div class="user-info">
-          <p>
-            <strong>{{ user.nickname }}</strong> ({{ user.email }})
-          </p>
-          <p>{{ user.firstName }} {{ user.lastName }}</p>
-          <p>Член: {{ user.isMember ? "Так" : "Ні" }}</p>
-        </div>
-      </a>
-    </div>
+  <h2>Користувачі</h2>
+  <input
+    type="text"
+    placeholder="Пошук за електронною адерсою"
+    [(ngModel)]="searchEmail"
+    (input)="onSearchChange()"
+    class="search-input"
+  />
+
+  <div class="user-list">
+    <a
+      class="user-card"
+      *ngFor="let user of filteredUsers"
+      [routerLink]="['/profile', user.id]"
+    >
+      <div
+        class="user-image"
+        [style.backgroundImage]="'url(' + user.userImage + ')'"
+      ></div>
+      <div class="user-info">
+        <p>
+          <strong>{{ user.nickname }}</strong> ({{ user.email }})
+        </p>
+        <p>{{ user.firstName }} {{ user.lastName }}</p>
+        <p>Член: {{ user.isMember ? "Так" : "Ні" }}</p>
+      </div>
+    </a>
   </div>
+</div>

@@ -1,7 +1,17 @@
-<div class="rating-log-wrapper" *ngIf="!loading">
+<div class="rating-log-wrapper">
   <h3>Історія змін рейтингу</h3>
+  <div *ngIf="isLoading" class="d-flex flex-column align-items-center mt-5">
+    <div
+      class="spinner-border text-secondary"
+      role="status"
+      style="width: 3rem; height: 3rem"
+    >
+      <span class="visually-hidden">Loading...</span>
+    </div>
+    <p class="mt-2 text-muted">Завантаження рейтингу...</p>
+  </div>
 
-  <div *ngIf="ratingLogs.length > 0; else noLogs">
+  <div *ngIf="ratingLogs.length > 0">
     <table class="rating-log-table">
       <thead>
         <tr>
@@ -30,7 +40,7 @@
     </table>
   </div>
 
-  <ng-template #noLogs>
-    <p>Історія змін рейтингу відсутня.</p>
-  </ng-template>
+  <div *ngIf="!isLoading && this.ratingLogs.length == 0" class="no-results">
+    Нічого не знайдено.
+  </div>
 </div>

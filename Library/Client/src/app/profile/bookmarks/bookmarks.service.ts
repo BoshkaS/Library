@@ -11,9 +11,9 @@ export class BookmarksService {
 
   constructor(private http: HttpClient) {}
 
-  getBookmarksBook() {
+  getBookmarksBook(userId: number) {
     return this.http.get<Book[]>(
-      'https://localhost:5001/api/bookmarkbook/bookmarks'
+      `https://localhost:5001/api/bookmarkbook/bookmarks/${userId}`
     );
   }
 

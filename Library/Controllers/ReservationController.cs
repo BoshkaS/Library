@@ -24,12 +24,12 @@ namespace Library.Controllers
             this.userContextService = userContextService;
         }
 
-        [HttpGet("all-reservations")]
-        public async Task<ActionResult<IEnumerable<ReservationDTO>>> GetReservations()
+        [HttpGet("all-reservations/{userId}")]
+        public async Task<ActionResult<IEnumerable<ReservationDTO>>> GetReservations(int userId)
         {
             await ProcessExpiredReservationsAsync(); // handle expired ones first
 
-            var userId = this.userContextService.GetCurrentUserId();
+            //var userId = this.userContextService.GetCurrentUserId();
 
             var bookmarkBooks = await _libraryContext.Reservation
                 .Where(x => x.UserId == userId && x.IsActive)
@@ -97,7 +97,7 @@ namespace Library.Controllers
             var userId = this.userContextService.GetCurrentUserId();
             var user = await GetUserById(userId);
             if (user == null)
-                return NotFound("UsКористувача не знайдено.");
+                return NotFound("Користувача не знайдено.");
 
             if (!user.IsMember)
                 return NotFound("Ваш акаунт має підтвердити бібліотекар.");
@@ -121,8 +121,8 @@ namespace Library.Controllers
                 .Where(bc => bc.BookId == dto.BookId)
                 .Where(bc =>
                     !_libraryContext.Reservation.Any(r =>
-                        r.BookCopyId == bc.BookCopyId &&
-                        r.ReservedAt.AddDays(1) > DateTime.UtcNow) &&
+                        r.BookCopyId == bc.BookCopyId
+                        && r.IsActive) &&
                     !_libraryContext.BorrowsBook.Any(bb =>
                         bb.BookCopyId == bc.BookCopyId &&
                         !bb.IsReturned &&
@@ -131,7 +131,7 @@ namespace Library.Controllers
 
 
             if (availableCopy == null)
-                return NotFound("Немає доступної копії книги.");
+                return BadRequest("Немає доступної копії книги.");
 
             var reservation = new Reservation
             {

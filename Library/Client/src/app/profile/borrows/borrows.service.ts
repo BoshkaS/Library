@@ -7,9 +7,9 @@ import { Observable } from 'rxjs';
 export class BorrowsService {
   constructor(private http: HttpClient) {}
 
-  getBorrowsBook() {
+  getBorrowsBook(userId: number) {
     return this.http.get<BorrowBookResponseDTO[]>(
-      'https://localhost:5001/api/borrowsbook/all-borrows'
+      `https://localhost:5001/api/borrowsbook/all-borrows/${userId}`
     );
   }
 

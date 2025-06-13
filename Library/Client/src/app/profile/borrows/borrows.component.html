@@ -4,8 +4,16 @@
       Додати позичення
     </button>
   </div>
-  <div *ngIf="borrowsBooks.length === 0" class="no-results">
-    Нічого не знайдено.
+
+  <div *ngIf="isLoading" class="d-flex flex-column align-items-center mt-5">
+    <div
+      class="spinner-border text-secondary"
+      role="status"
+      style="width: 3rem; height: 3rem"
+    >
+      <span class="visually-hidden">Loading...</span>
+    </div>
+    <p class="mt-2 text-muted">Завантаження книг...</p>
   </div>
 
   <ul class="borrows">
@@ -14,4 +22,8 @@
       [borrowBook]="borrowBook"
     ></app-borrow-book-item>
   </ul>
+
+  <div *ngIf="!isLoading && this.borrowsBooks.length == 0" class="no-results">
+    Нічого не знайдено.
+  </div>
 </section>
