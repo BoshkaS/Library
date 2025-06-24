@@ -71,7 +71,6 @@ uvicorn similarity_api:app --reload
 ```bash
 cd .\Library\Client\
 npm start
-}
 ```
 
 ## Зворотній зв'язок
