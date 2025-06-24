@@ -49,14 +49,12 @@
 cd ..
 dotnet ef migrations add Initial
 dotnet ef database update
-}
 ```
 
 ### Запуск проєкту
 Бекенд
 ```bash
 dotnet run
-}
 ```
 
 Запуск модельки для пошуку схожих книг
@@ -66,7 +64,7 @@ pip install uvicorn fastapi
 pip install sentence-transformers
 pip install psycopg2
 pip intall dotenv
-}
+uvicorn similarity_api:app --reload
 ```
 
 Фронтенд
